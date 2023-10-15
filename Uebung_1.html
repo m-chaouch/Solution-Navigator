@@ -40,7 +40,254 @@
             </ul>
     </ol>
 
+    <br>
+    <hr>
+    <br>
+
+    <h2>1.2 HTTP</h2>
+    <ol>
+        <li>Sie bekommen im Browser den HTTP Status Code 200. Was bedeutet das?</li>
+
+        <li>Sie bekommen im Browser den HTTP Status Code 301. Was hat das zu bedeuten?</li>
+        <li>Sie bekommen im Browser den HTTP Status Code 400. Was hat das zu bedeuten? Was können Sie dagegen tun?</li>
+        <li>Sie bekommen im Browser den HTTP Status Code 403. Was hat das zu bedeuten? Was können Sie dagegen tun?</li>
+        <li>
+            In einer Webanwendung benötigen Sie eine OPTIONS-Anfrage, die die Optionen des Servers vor dem eigentlichen Zugriff erfragen soll. 
+            Aus Performancegründen soll die Abfrage aber cacheable sein. Wie könnten Sie dafür eine Lösung angehen?
+        </li>
+    </ol>
+    <br>
+    <ol>
+        <li>Die Anfrage war erfolgreich und der Server hat zufriedenstellen geantwortet.</li>
+        <li>Die angeforderte URL wurde dauerhaft an eine andere URL weitergeleitet. Man soll die neuere URL in zukünftigen Anfragen verwenden.</li>
+        <li>Die Anfrage des Browsers ist fehlerhaft oder ungültig (Möglicherweise fehlende oder ungültige Daten in der Anfrage / ist die vom Browser gesendete Anfrage korrekt und gültig?).
+            <br>
+            -> Anfrage überprüfen/schauen ob  sie den Anforderungen des Servers entspricht.
+        </li>
+        <li>Der Server hat die Anfrage verstanden, darf aber aus rechtlichen oder anderen Zugriffs-Gründen nicht auf die Ressource zugreifen (Fehlende Berechtigungen/Zugriffsrechte).
+            <br>
+            -> Die fehlenden Berechtigungen/Zugriffsrechte holen.
+        </li>
+        <li>Man könnte den Cache-Control-Header dazu nutzen, um anzugeben wie lange die OPTIONS-Anfrage gecacht werden soll.</li>
+    </ol>
+
+    <br>
+    <hr>
+    <br>
     
+    <h2>1.3 Quiz zu HTML</h2>
+        <dl>
+            <dt><b>Was ist HTML?</b></dt>
+            <dd><input type="checkbox" checked>eine Auszeichnungssprache</dd>
+            <dt><b>Wofür steht HTML?</b></dt>
+            <dd><input type="checkbox" checked>Hypertext Markup Language</dd>
+            <dt><b>Wofür wird HTML eingesetzt?</b></dt>
+            <dd><input type="checkbox" checked>für die Strukturierung digitaler Dokumente</dd>
+            <dt><b>Wer hat HTML erfunden?</b></dt>
+            <dd><input type="checkbox" checked>Tim Berners-Lee</dd>
+            <dt><b>Zu welchem ursprünglichen Zweck wurde HTML erfunden?</b></dt>
+            <dd><input type="checkbox" checked>für den Austausch wissenschaftlicher Publikationen</dd>
+            <dt><b>Wer arbeitet alles an der Weiterentwicklung von HTML?</b></dt>
+            <ul>
+                <input type="checkbox" checked>
+                <label>die Web Hypertext Application Technology Working Group (WHATWG)</label>
+                <br> <!--Zeilenumbruch-->
+                <input type="checkbox" checked>
+                <label>das World Wide Web Consortium (W3C)
+            </ul>
+        </dl>
+
+    <br>
+    <hr>
+    <br>
+
+    <h2>1.4 Quiz zu HTML-Tags</h2>
+        <dt><b>Was ist ein HTML-Tag?</b></dt>
+        <dd><input type="radio" checked>ein Auszeichnungselement</dd>
+        <dt><b>Wofür nutzt man einen HTML-Tag?</b></dt>
+        <dd>
+            <input type="radio" checked>Zur Strukturierung von Webseiteninhalten
+        <br>
+            <input type="radio" checked>Zur Einbettung weiterer Inhalte, die über Text hinausgehen
+        </dd>
+        <dt><b></b></dt>
+        <dd><input type="radio" checked></dd>
+        <dt><b>Woraus besteht ein HTML-Tag und wie setzt man ihn ein?</b></dt>
+        <dd>
+            <input type="radio" checked>&lt;h2&gt;Überschrift&lt;/h2&gt;
+            <br>
+            <input type="radio" checked>&lt;p&gt;Paragraph&lt;/p&gt;
+            <br>
+            <input type="radio" checked>Hallo Welt!&lt;br&gt;Willkommen.
+        </dd>
+        <dt><b>Was ist ein HTML-Attribut?</b></dt>
+        <dd><input type="radio" checked>eine Eigenschaft</dd>
+        <dt><b>Wofür nutzt man ein HTML-Attribut?</b></dt>
+        <dd><input type="radio" checked>zur Beschreibung zusätzlicher Eigenschaften von HTML-Tags</dd>
+        <dt><b>Wie schreibt man einen Kommentar in HTML?</b></dt>
+        <dd><input type="radio" checked>&lt;!-- Kommentar --&gt;</dd>
+
+    <br>
+    <hr>
+    <br>
+
+    <h2>1.5 Lückentext zu HTML</h2>
+    <p>
+        <dt>
+            <p><input type="text" maxlength="15"></p>
+            <p><input type="text"></p>
+            <dd><p><input type="text"></p></dd>
+            <dt></dt>
+            <dd><p><input type="text">Titel der Webseite<input type="text"></p></dd>
+            <p><input type="text"></p>
+            <p><input type="text"></p>
+            <dd><p><input type="text">Anwendung von HTML-Tags<input type="text"></p></dd>
+            <dd><p><input type="text">Motivation<input type="text"></p></dd>
+            <dd><p><input type="text"></p></dd>
+            <dd><p>
+                Dieser Lückentext unterstützt Sie dabei selbst einzuschätzen, 
+                ob Sie in der Lage sind das HTML-Grundgerüst und die HTML-Tags zum Markieren von Überschriften, 
+                Paragraphen und HTML-Kommentaren einzusetzen.
+            </p></dd>
+            <dd><p><input type="text"></p></dd>
+        </dt>
+        <p><input type="text"></p>
+        <dd><p><input type="text">Auskommentierung von HTML-Code<input type="text"></p></dd>
+        <dd><p><input type="text">Dieser Abschnitt wurde auskommentiert.<input type="text"></p></dd>
+        <p><input type="text"></p>
+        <dd><p><input type="text"></p></dd>
+        <p><input type="text"></p>
+    </p>
+
+    <br>
+    <hr>
+    <br>
+
+    <h2>1.6 HTML-Literatur lesen und Fragen beantworten</h2>
+    <h3>1.Was ist HTML?</h3>
+    <p>HTML ist eine Auszeichnungssprache. Sie dient dazu Textbasierte Inhalte eines Webdokumentes zu strukturieren.</p>
+    <h3> 2.Wie kann man eine geschachtelte geordnete Liste der Tiefe 3 erzeugen?</h3>
+
+    <ol>
+        <li>erster Punkt</li>
+        <li>zweiter Punkt
+            <ol>
+                <li>erster Unterpunkt von Punkt zwei</li>
+                <li>zweiter Unterpunkt von Punkt zwei</li>
+                <li>dritter Unterpunkt von Punkt zwei
+                    <ol>
+                        <li>Unterpunkt des dritten Unterpunktes</li>
+                    </ol>
+                </li>
+            </ol>
+        </li>
+        <li>dritter Punkt</li>
+    </ol>
+
+    <h3>3.Wie ist eine HTML-Tabelle aufgebaut?</h3>
+    <p>
+        Man nutzt den Tag &lt;table&gt;. In diesem gibt man mit &lt;th&gt; den Spaltenname an und mit &lt;td&gt; (=table data) den Inhalt der Tabellenzelle. 
+        Jede Tabellenreihe fängt mit &lt;tr&gt; (=table row) an und hört mit &lt;/tr&gt;  auf.
+        <!--Mit &lt wird "<" und mit &gt ">" simuliert.-->
+    </p>
+
     
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Vorname</th>
+        </tr>
+        <tr>
+            <td>Chaouch</td>
+            <td>Moataz</td>
+        </tr>
+    </table>
+
+    <h3>4.Welche Konventionen sollte man bei Pfaden und Dateinamen beachten?</h3>
+    <p> Die Dateien müssen von dem Server akzeptiert werden.</p>
+    <ol>
+        <li>Deutsche Umlaute vermeiden</li>
+        <li>Scharfes S vermeiden</li>
+        <li>Dateiname nicht länger als 256 Zeichen</li>
+        <li>?,* und = dürfen auf keinen Fall benutzt werden.</li>
+        <li>Auf das Leerzeichen verzichten!</li>
+        <li>Unter den Sonderzeichen ist auf jeden fall das "_" erlaubt.</li>
+    </ol>
+    <h3>5.Wie baut man in HTML ein Menü?</h3>
+    <ul>
+        <li><a href="#">Startseite</a></li>
+        <li><a href="#">Dienstleistungen</a></li>
+        <li><a href="#">Impressum</a></li>
+    </ul>
+    <h3>6.Welche Attribute sollte man bei Bildern wie verwenden?</h3>
+    <p>
+        "src" um zu sagen wo das Bild überhaupt ist,  mit "alt" evtl. eine Beschreibung des Bildes, 
+        "title" für den Titel des Bildes und evtl. 
+        noch "width" und "height" für die Breite und Höhe des Bildes.
+        Man kann auch einfach nur eines der beiden angeben. Dann wird das andere Attribut entsprechend skaliert,
+        sodass das Verhältnis noch stimmt.
+    </p>
+
+    <img src="../test.png" alt="Ein Blumenstrauß" height="400">
+
+    <br>
+    <br>
+    <hr>
+    <br>
+
+    <h2>1.7 HTML-Wireframe</h2>
+    <h1>Übung 1.2: Inventors of the Web</h1>
+    <ul>
+        <li><b><ins><mark>Tim Berners-Lee:</mark></ins></b> WWW, HTTP, HTML, URI</li>    <!--"ins" untersteicht, "b" macht fett-->
+        <li><b>Hakom Lie and Bert Bos:</b> CSS</li>
+        <li><b>Brendan Eich:</b> JavaScript</li>
+    </ul>
+    <hr>    <!--Hiermit wird die Linie zur Trennung der Inhalte generiert (Sogenannter hr-tag)-->
+    <br>
+    <h2>Inventors of the WWW</h2>
+    <table border="10" >
+        <thead>
+            <th colspan="4">Inventors of the WWW</th>
+        </thead>
+        <tr>
+            <th>WWW</th>
+            <th>HTML</th>
+            <th>CSS</th>
+            <th>JavaScript</th>
+        </tr>
+        <tr>
+            <td><mark>Tim Berners-Lee</mark></td>
+            <td><mark>Tim Berners-Lee</mark></td>
+            <td>Hakom Lie and Bert Bos</td>
+            <td>Brendan Eich</td>
+        </tr>
+    </table>
+    <br>
+    <hr>
+    
+    <table>
+        <thead>
+            <th colspan="3"><b>Inventors of the WWW</b></th>
+        </thead>
+        <tr><td colspan ="3"><hr></td></tr>
+        <tr>
+            <td><center><b>HTML</b></center></td>
+            <td><b>|</b></td>
+            <td><center><b>JavaScript</b></center></td>
+        </tr>
+        <tr>
+            <th><img src="..\tbl.jpg" alt="Tim Berners-Lee" width="115"></th>
+            <td><b>|</b></td>
+            <th><img src="..\eich.jpg" alt="Brendan Eich" width="115" ></th>
+        </tr>
+        <tr>
+            <td><mark>Tim Berners-Lee</mark></td>
+            <td>|</td>
+            <td>Brendan Eich</td>
+        </tr>
+    </table> 
+    <br>
+    <hr>  
+    <br>
 </body>
 </html>
