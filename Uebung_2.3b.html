@@ -6,10 +6,9 @@
 <style>
     .rahmen 
     {
-    border: 2px solid black;
-    width: calc(100% - 20px);
-    min-height: 500px;
-    max-height:calc(100% - 20px);
+        border: 2px solid black;
+        width: calc(100% - 20px);
+        min-height: 300px;
     }
 
     h1
@@ -21,13 +20,17 @@
     /*das hier ist die Standardregel, auf die zugegriffen wird, 
     wenn die checkbox nicht gechecked ist.*/
 
+    /*
+    da hier nur die Regel display:none von den toggleImage-Regeln überschrieben wird,
+    kann man hier die Standardregeln für das Bild einfügen,
+    sprich width und padding.
+    */
+
     {
         width: calc(100% - 20px);
         padding:5px;
         display: none;
     }
-
-
 
     #toggleImage:checked + .rahmen #imageContainer 
     /*
@@ -51,7 +54,5 @@
         <img id="imageContainer" src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/h-brs.jpg" alt="HBRS-Bild">
     </div>
     
-    
-
 </body>
 </html>
