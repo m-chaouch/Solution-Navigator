@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8"> <title>Übung 2.3b</title>
+</head>
+<style>
+    .rahmen
+    {
+    border: 2px solid black;
+    padding: 7px;
+    display: inline-block;
+    }
+
+    .bild
+    {
+
+    }
+
+    h1
+    {
+        font-size: 50px;
+    }
+
+    #imageContainer 
+    {
+    display: none;
+    }
+    #toggleImage:checked + #imageContainer 
+    {
+    display: block;
+    }
+
+</style>
+<body>
+    <h1>Übung 2.3</h1>
+    <input type="checkbox" id="toggleImage">hide and show via checkbox
+    <div id="imageContainer" class="rahmen">
+        <img src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/h-brs.jpg" alt="HBRS-Bild">
+    </div>
+    
+
+</body>
+</html>
