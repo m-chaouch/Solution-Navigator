@@ -4,16 +4,12 @@
 <meta charset="UTF-8"> <title>Übung 2.3b</title>
 </head>
 <style>
-    .rahmen
+    .rahmen 
     {
     border: 2px solid black;
-    padding: 7px;
-    display: inline-block;
-    }
-
-    .bild
-    {
-
+    width: calc(100% - 20px);
+    min-height: 500px;
+    max-height:calc(100% - 20px);
     }
 
     h1
@@ -21,22 +17,40 @@
         font-size: 50px;
     }
 
-    #imageContainer 
+    #imageContainer
+    /*das hier ist die Standardregel, auf die zugegriffen wird, 
+    wenn die checkbox nicht gechecked ist.*/
+
     {
-    display: none;
+        width: calc(100% - 20px);
+        padding:5px;
+        display: none;
     }
-    #toggleImage:checked + #imageContainer 
+
+
+
+    #toggleImage:checked + .rahmen #imageContainer 
+    /*
+    GANZ WICHTIG:checked schaut ob die Checkbox aktiviert ist.
+    Der sog. Geschwisterselektor "+" wählt unmittelbar das nächste Element aus.
+    Da wir hier eine Klasse gegeben haben(rahmen), werden alle Elemente mit der Klasse rahmen ausgewählt.
+    Mit #ImageContainer wird das HTML Element mit der ID #ImageContainer ausgewählt.
+    Der folgende Inhalt in den geschweiften Klammern bezieht sich auf #imageContainer.
+    Dieser Inhalt gilt NUR wenn #toggleImage:checked wahr ist, 
+    ansonsten gilt die Standardregel!
+    */
     {
-    display: block;
+    display: inline-block;
     }
 
 </style>
 <body>
     <h1>Übung 2.3</h1>
     <input type="checkbox" id="toggleImage">hide and show via checkbox
-    <div id="imageContainer" class="rahmen">
-        <img src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/h-brs.jpg" alt="HBRS-Bild">
+    <div class="rahmen">
+        <img id="imageContainer" src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/h-brs.jpg" alt="HBRS-Bild">
     </div>
+    
     
 
 </body>
