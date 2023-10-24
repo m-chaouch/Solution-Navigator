@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Übung 2.4</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <!--
+        link ist wichtig wenn ich die Font "Roboto" hier benutzen will! 
+        stylesheet bedeutet einfach, dass das verknüpfte Dokument eine Stylesheet-Datei ist.
+    -->
+</head>
+<style>
+    body
+    {
+        font-family: Roboto;
+        background-color: #a9d7d1;
+    }
+
+    h1
+    {
+        text-align: center;
+    }
+
+    .elem 
+    {
+        background-color: snow;
+        width: 95%;
+        height: 85vh ; /*100 viewport height - etwas einfacher als Prozentangabe, die hier nichts anzeigt*/
+        margin: 0 auto; /*horizontales Zentrieren*/
+        flex-grow: 1; /* Den verfügbaren vertikalen Platz ausfüllen */
+        border-radius: 15px 15px 0 0;   
+        /*
+        hiermit rundet man die Ecken oben rechts und oben links ab. 
+        Für welche Ecke stehen die Werte? Reihenfolge : oben links, oben rechts, unten rechts, unten links.
+        */
+        padding-top: 35px;
+    }
+
+    .top
+    {
+        text-align: center;
+    }
+
+    .textinputsection
+    {
+        text-align: right;
+        
+    }
+
+    .border
+    {
+        padding-right: 90px;
+        padding-top: 30px;
+    }
+
+    label   /*sowas wie *Name, *Email usw. */ 
+    {
+        margin-right:20px;  /*rechts neben JEDEM label ist jetzt etwas Platz*/
+    }
+
+    .selektor
+    {
+        text-align: right;
+        margin-right: 107px;
+    }
+</style>
+<body>
+    <h1>Survey Form</h1>
+    <div class="elem">
+        <div>
+            <p class="top">Let us know how we can improve freeCodeCamp</p>
+        </div>
+        <div class="border">
+            <!--Input Types:https://www.w3schools.com/html/html_form_input_types.asp-->
+            <div class="textinputsection">
+                <label for="fname">* Name:</label>
+                <input type="text" placeholder="Enter your name"><br><br>
+                <label for="lname">* Email: </label>
+                <input type="text" placeholder="Enter your Email"><br><br>
+                <label for="lname">* Age:</label>
+                <input type="text" placeholder="Age"><br><br>
+            </div>
+            <!--Selektor:https://www.w3schools.com/tags/tag_select.asp-->
+            <div class="selektor">
+                <label for="Student">Which option best describes your current role?:</label>
+                <select name="Student" id="Student" style="padding-top: 6px; padding-bottom: 6px;">
+                <option value="Student">Student</option>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
