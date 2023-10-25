@@ -63,6 +63,38 @@
         text-align: right;
         margin-right: 107px;
     }
+
+    .radioinput 
+    {
+        display: block;
+        text-align: right;
+        margin-right: 67px;
+        margin-top:15px;
+    }
+
+    .label2
+    {
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    .text
+    {
+        text-align: right;
+        margin-right: 26vh;
+    }
+
+    .selektor2
+    {
+        text-align: right;
+        margin-right: 60px;
+    }
+
+    .checkboxlay
+    {
+        float:right;
+        margin-top: 20px;
+    }
 </style>
 <body>
     <h1>Survey Form</h1>
@@ -82,11 +114,56 @@
             </div>
             <!--Selektor:https://www.w3schools.com/tags/tag_select.asp-->
             <div class="selektor">
-                <label for="Student">Which option best describes your current role?:</label>
+                <label  for ="Student">Which option best describes your current role?</label>
                 <select name="Student" id="Student" style="padding-top: 6px; padding-bottom: 6px;">
                 <option value="Student">Student</option>
+                </select>
             </div>
+            <div class="radioinput">
+                <label for="Student" style="display:inline-block;margin-right: 133px;">How likely is that you would recommend freeCodeCamp to a friend?</label>
+                <div style="display:block;">
+                    <input type="radio" class="label2" name="choice">   <!--weil alle Auswahlen name="choice" haben, kann man von allen Möglichkeiten nur eins auswählen-->
+                    <label for="Definitely">Definitely</label><br>
+                    <div style="margin-right: 18px;">
+                        <input type="radio" class="label2" name="choice">
+                        <label for="Maybe">Maybe</label><br>
+                    </div>
+                    <div style="margin-right: 5px;">
+                        <input type="radio" class="label2" name="choice">
+                        <label for="NotSure">Not sure</label>
+                    </div>
+                </div>
+            </div>
+            <div class="selektor2" style="margin-top: 20px;">
+                <label  for ="Select">What do you like the most in FCC?</label>
+                <select name="Select" id="Select" style="padding-top: 6px; padding-bottom: 6px;">
+                <option value="Selected">Select an option</option>
+                </select>
+            </div>
+            
+            <div style="margin-top: 20px; text-align: right;">
+                <label>Things that should be improved in the future(Check all that apply)</label>
+                <div class="checkboxlay">
+                    <div>
+                        <input type="checkbox" class="label2">
+                        <label for="vehicle1"> Front-end Projects</label><br>
+                    </div>
+                    <div style="margin-right: 1px;">
+                        <input type="checkbox" class="label2">
+                        <label for="vehicle2"> Back-end Projects</label><br>
+                    </div>
+                    <div style="margin-right: 2px;">
+                        <input type="checkbox" class="label2">
+                        <label for="vehicle3"> Data Visualization</label>
+                    </div>
+
+                </div>
+                
+            </div>
+            
         </div>
+        
+
     </div>
 </body>
 </html>
