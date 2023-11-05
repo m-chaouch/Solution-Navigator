@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übung 3.3</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap">
+</head>
+<body>
+    <div class="site">
+        <div class="header">
+            <div class="headeritems">
+                <div class="button1">The book series</div>
+                <div class="button2">Testimonials</div>
+                <div class="button3">The Author</div>
+                <div class="button4">Free resources</div>
+            </div>
+        </div>
+        <div class="content">
+            <h3>You dont know JavaScript</h3>
+            <div class="contentitems">
+                <img class="img" src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/landing-img.png" width="100%">
+                <div class="righttext">
+                    <p class="righttextitems">Don't just drift through Javascript.</p>
+                    <p class="righttextitems">Understand how JavaScript works</p>
+                    <p class="righttextitems">Start your journey through the bumpy side of Javascript</p>
+                    <div class="order"><div class="ordertext">ORDER YOUR COPY NOW</div></div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footeritems">
+                <p class="moreinfotext">The first ebook in the book series is absolutely free.</p>
+                <div class="moreinfo"><div class="ordertext">FIND OUT MORE ABOUT THIS OFFER</div></div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .site{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 10fr 3fr; 
+        grid-template-areas:
+            "header" 
+            "content"
+            "footer";
+        font-family: Roboto;
+    }
+
+    .header{
+        background-color: rgb(44, 43, 43);
+        height: 6vh;
+        grid-area: header;
+    }
+
+    .headeritems{
+        text-align:center;
+        color:white;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        align-items: center;
+    }
+
+    .content{
+        background-color: white;
+        grid-area: content;
+    }
+
+    .contentitems{
+        display:grid;
+        grid-template-columns: 1fr 2fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 
+            "image righttext";
+        margin: 15px; 
+        margin-left: 35px;
+    }
+
+    .footer{
+        background-color: rgb(1,25,38);
+        grid-area: footer;
+    }
+
+    .footeritems{
+        
+    }
+
+    .button1{grid-area: button1;}
+    .button2{grid-area: button2;}
+    .button3{grid-area: button3;}
+    .button4{grid-area: button4;}
+
+    h3{
+        text-align: center;
+        color:rgb(29, 25, 25);
+    }
+    
+    .img{
+        grid-area:image;
+        border-radius:8px;
+        border:1px solid black;
+    }
+
+    .righttextitems{
+        margin:30px;
+        font-size:14px;
+        text-align: center;
+    }
+
+    .righttext{
+        margin-top:20px;
+        grid-area:righttext;
+        margin-left:20px;
+    }
+
+    .order{
+        background-color: rgb(255, 140, 32);
+        width:27vh;
+        height:30px;
+        border-radius: 3px;
+        color:white;
+        margin:auto; /*div horizontal zentrieren*/   
+    }
+
+    .ordertext{
+        font-size: 10px; 
+        text-align: center;
+        padding:9px; /*vertikale Zentrierung*/
+    }
+
+    .moreinfo{
+        background-color: rgb(255, 140, 32);
+        width:55vh;
+        height:30px;
+        border-radius: 5px;
+        margin:auto;
+        color:white; 
+    }
+
+    .moreinfotext{
+        padding-top:40px;
+        color:rgb(189, 189, 189);
+        font-size:14px;
+        text-align: center;
+    }
+
+</style>
