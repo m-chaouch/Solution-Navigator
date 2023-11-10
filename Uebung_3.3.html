@@ -17,9 +17,9 @@
             </div>
         </div>
         <div class="content">
-            <h3>You dont know JavaScript</h3>
+            <h2>You dont know JavaScript</h2>
             <div class="contentitems">
-                <img class="img" src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/landing-img.png" width="100%">
+                <img class="img" src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/landing-img.png" width="66%">
                 <div class="righttext">
                     <p class="righttextitems">Don't just drift through Javascript.</p>
                     <p class="righttextitems">Understand how JavaScript works</p>
@@ -43,7 +43,7 @@
     .site{
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 10fr 3fr; 
+        grid-template-rows: 1fr 9r 2fr; 
         grid-template-areas:
             "header" 
             "content"
@@ -60,8 +60,13 @@
     .headeritems{
         text-align:center;
         color:white;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        display:grid;
+        font-size: 12px;
+        height:6vh;
         align-items: center;
+        grid-template-columns: 4fr 1fr 1fr 1fr 1fr 4fr;
+        grid-template-areas: 
+            "space button1 button2 button3 button4";
     }
 
     .content{
@@ -85,7 +90,7 @@
     }
 
     .footeritems{
-        
+        padding-bottom: 15px;
     }
 
     .button1{grid-area: button1;}
@@ -93,7 +98,7 @@
     .button3{grid-area: button3;}
     .button4{grid-area: button4;}
 
-    h3{
+    h2{
         text-align: center;
         color:rgb(29, 25, 25);
     }
@@ -111,14 +116,14 @@
     }
 
     .righttext{
-        margin-top:20px;
+        padding-top:25px;
         grid-area:righttext;
         margin-left:20px;
     }
 
     .order{
         background-color: rgb(255, 140, 32);
-        width:27vh;
+        width:15vw;
         height:30px;
         border-radius: 3px;
         color:white;
@@ -133,7 +138,7 @@
 
     .moreinfo{
         background-color: rgb(255, 140, 32);
-        width:55vh;
+        width:25vw;
         height:30px;
         border-radius: 5px;
         margin:auto;
@@ -145,6 +150,106 @@
         color:rgb(189, 189, 189);
         font-size:14px;
         text-align: center;
+    }
+
+
+
+    @media(max-width:67em){
+        .headeritems{
+            text-align:center;
+            color:white;
+            display:grid;
+            font-size: 12px;
+            height:6vh;
+            align-items: center;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr 2fr;
+            grid-template-areas: 
+                "space button1 button2 button3 button4";
+        }
+    }
+
+
+    @media(max-width:50em){
+        .headeritems{
+            text-align:center;
+            color:white;
+            display:grid;
+            font-size: 12px;
+            height:6vh;
+            align-items: center;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-areas: 
+                "space button1 button2 button3 button4";
+        }
+
+        .contentitems{
+            display:grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas: 
+                "image"
+                "righttext";
+            margin-left: 0px;
+            margin-right: 0px;
+        }
+
+        .img{
+            margin-left: auto;
+            margin-right: auto;
+            width: 50%;
+        }
+        .order{
+            width:30vw;
+            }
+
+        .righttext{
+            margin-left:0px;
+        }
+    }
+    
+
+    @media(max-width:35em){
+        .headeritems{
+            text-align:center;
+            color:white;
+            display:grid;
+            font-size: 12px;
+            height:6vh;
+            align-items: center;
+            grid-template-columns:  1fr 1fr 1fr 1fr ;
+            grid-template-areas: 
+                "button1 button2 button3 button4";
+        }
+
+        .moreinfo{
+            background-color: rgb(255, 140, 32);
+            width:30vw;
+            height:30px;
+            border-radius: 5px;
+            margin:auto;
+            color:white; 
+        }
+
+        .righttext{
+            margin-left:0px;
+        }
+
+        .order{
+            width:40vw;
+        }
+
+        .moreinfo{
+            background-color: rgb(255, 140, 32);
+            width:50vw;
+            height:30px;
+            border-radius: 5px;
+            margin:auto;
+            color:white; 
+        }
+
+        
+
+        
     }
 
 </style>
