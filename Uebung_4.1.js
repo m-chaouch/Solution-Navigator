@@ -27,3 +27,6 @@ function applyf(fun){
         }
     }
 }
+
+
+
