@@ -10,7 +10,6 @@ function Person(name) {
   function Auto(hersteller, modell) {
     this.hersteller = hersteller;
     this.modell = modell;
-    this.besitzer = null; // Variable zur Speicherung des Besitzers des Autos
   }
 
   function conflict(person1, person2){

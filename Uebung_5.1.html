@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übung 5.1</title>
+</head>
+<h2>Textcontent</h2>
+
+<script>
+    
+    const properties = ["innerHTML", "innerText", "textContent", "outerHTML"];
+    const werte = document.createElement('werte');
+    properties.forEach(function(property){
+        var elapsedTime = 0;
+        for(var i=0; i < 10000; i++){
+            const elem = document.createElement("div");
+            const startTime = performance.now();
+            elem[property] = 'text';
+            const endTime = performance.now();
+            elapsedTime += endTime - startTime;
+        } 
+        console.log(property + " " + elapsedTime);
+        const wert = document.createTextNode(property);
+    });
+    
+</script>
+</html>
