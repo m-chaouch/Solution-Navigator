@@ -51,6 +51,6 @@ function topsort(matrix) {
 
 
 
-var matrix = [["schlafen","studieren"],["essen","studieren"],["studieren","prüfen"]];
-topsort(matrix);
-console.assert(["schlafen","essen","studieren","prüfen"],topsort(matrix));
+// var matrix = [["schlafen","studieren"],["essen","studieren"],["studieren","prüfen"]];
+// topsort(matrix);
+// console.assert(["schlafen","essen","studieren","prüfen"],topsort(matrix));

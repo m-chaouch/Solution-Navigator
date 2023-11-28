@@ -6,22 +6,31 @@
     <title>Übung 5.1</title>
 </head>
 <h2>Textcontent</h2>
+<ul id="list"><p>Messergebnisse</p></ul>       <!-- die ID nutzen wir für JS damit wir die Zeiten appenden bzw. in der Liste hinzufügen können -->
 
 <script>
     
     const properties = ["innerHTML", "innerText", "textContent", "outerHTML"];
+    const list = document.getElementById('list');
     const werte = document.createElement('werte');
+    const content = 'This element contains <code>code</code><p><strong>  and HTML tags </strong></p>'   
+    /**
+     * ein komplizierteres Beispiel um bei der Zuweisung h2elem.property = content;
+     * dafür zu sorgen, dass die properties etwas zu tun haben.
+    */
     properties.forEach(function(property){
         var elapsedTime = 0;
-        for(var i=0; i < 10000; i++){
-            const elem = document.createElement("div");
-            const startTime = performance.now();
-            elem[property] = 'text';
-            const endTime = performance.now();
-            elapsedTime += endTime - startTime;
+        const startTime = performance.now();
+        const h2elem = document.getElementsByTagName('h2');
+        for(var i=0; i < 1000000; i++){     // Die Iterationszahl lässt sich vergrößern um die Unterschiede der Properties besser zu verdeutlichen
+            h2elem.property = content;
         } 
-        console.log(property + " " + elapsedTime);
-        const wert = document.createTextNode(property);
+        const endTime = performance.now();
+        elapsedTime = endTime - startTime;
+        console.log(property + ": " + elapsedTime);
+        const listelem = document.createElement('li');
+        listelem.textContent = property + ": " + elapsedTime;
+        list.appendChild(listelem);
     });
     
 </script>

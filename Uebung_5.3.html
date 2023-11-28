@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übung 5.3</title>
+    <script src = "Uebung_4.4.js"></script>
+</head>
+<body>
+    <h1>TopSort</h1>
+    <label for="Regel">Regel:</label>
+    <input type="text" id="Regel" placeholder='["...","..."]' required>
+    <button id="hinzbutton">Hinzufügen</button>
+    <ul id="Regelliste"></ul>
+    <button id="sortiere">topologische Sortierung</button>
+    <br>
+    <br>
+    <h4>Topologisch sortiertes Ergebnis</h4>
+    <p id="SortErgebnis"></p>
+
+    
+</body>
+
+<script>
+    //  Hol erstmal die wichtigen Attribute.
+    const Regelliste = document.getElementById("Regelliste");
+    const hinzbutton = document.getElementById("hinzbutton");  
+    const sortbutton = document.getElementById("sortiere");
+    const SortErgebnis = document.getElementById("SortErgebnis");
+    let regeln = [];
+    // Wenn man auf Hinzufügen drückt, dann..
+    hinzbutton.addEventListener("click", function(){
+        const neuezeile = document.createElement('li');
+        const neueregel = document.getElementById('Regel').value;
+        neuezeile.textContent = neueregel
+        Regelliste.append(neuezeile);
+        var jsArray = JSON.parse(neueregel);    // Ansonsten hat man dann in einem Array mehrere Strings!
+        regeln.push(jsArray);
+    })
+
+    sortbutton.addEventListener("click", function(){
+        let sortiert = topsort(regeln);
+        const ergebnis = document.createElement('li');
+        ergebnis.textContent = sortiert;
+        console.log(regeln);
+        SortErgebnis.appendChild(ergebnis);
+    })
+
+
+</script>
+</html>
