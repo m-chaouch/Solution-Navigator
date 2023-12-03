@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übung 6.1</title>
+</head>
+<body>
+    <h1>Klammerpaare</h1>
+    <input type="text" id="Input">
+    <p>Fehlt ein Klammerpaar oder sollte eine Klammer falsch gesetzt sein, leuchtet das Eingabefeld rot.</p>
+</body>
+
+<script>
+    const userInput = document.getElementById('Input');
+    const changeTextColor = (event) => {        // Arrow Funktion
+        const userInputvalue = userInput.value; // MUSS in dieser Funktion sein, sonst bleibt leer weil der Input am Anfang leer ist
+        if (!bracketCheck(userInputvalue)) {
+            userInput.classList.add('error');// Farbe Rot, wenn die Eingabe falsche Klammersetzung hat
+        } else {
+            
+            userInput.classList.remove('error'); // Leer lassen, um zur Standardfarbe zurückzukehren
+        }
+    }
+    userInput.addEventListener('input', changeTextColor);
+
+
+    const bracketCheck = (userInputvalue) =>{
+        const stack = [];
+        const brackets = {  // brackets Objekt mit einem assoziativem Array, um Klammern zueinander zu ordnen
+            '(': ')',
+            '{': '}',
+            '[': ']',
+        };
+
+        for (let i = 0; i < userInputvalue.length; i++) {
+            const char = userInputvalue[i];  // hol das Zeichen an der Stelle i
+            console.log(char);
+
+            if (brackets.hasOwnProperty(char)) {  // guckt ob char ein gültiger Schlüsselwert in brackets ist
+                stack.push(char);
+            } else if (Object.values(brackets).includes(char)) {    //Schaut ob char den WERTEN von brackets matched -> wenn ja, dann entferne eine Klammer vom Stack
+                const lastOpened = stack.pop();
+                if (brackets[lastOpened] !== char) {
+                    return false;// Klammerpaar stimmt nicht überein
+                }
+            }
+        }
+        // Überprüfe, ob alle geöffneten Klammern geschlossen wurden
+        return stack.length === 0;
+    }
+
+</script>
+
+<style>
+    input{
+        color : black;
+    }
+
+    input.error{
+        color : red; 
+    }
+</style>
+</html>
