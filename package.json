@@ -1,0 +1,12 @@
+{
+
+    "type": "module",
+
+    "dependencies": {
+
+        "stopwords-de": "^0.3.0"
+
+    }
+
+}
+

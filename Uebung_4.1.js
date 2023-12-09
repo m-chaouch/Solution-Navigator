@@ -6,15 +6,15 @@ function identity_function(a){
     return identity(a);
 }
 
-function add(a,b){
+export function add(a,b){
     return a+b;
 }
 
-function mul(a,b){
+export function mul(a,b){
     return a*b;
 }
 
-function addf(x){
+export function addf(x){
     return function refun(y){
         return x+y;
     }

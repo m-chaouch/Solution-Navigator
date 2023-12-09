@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übung 6.2</title>
+    <script src = "Uebung_6.2.js"></script>
+</head>
+<body>
+<input type="text" id="Regeln">
+<button id="Sortierbutton">Sortieren</button>
+<p>Das topologisch sortierte Ergebnis:</p>
+<ol id="Ergebnisliste"></ol>
+    <script>
+        const button = document.getElementById("Sortierbutton");
+        
+        const solutionlist = document.getElementById("Ergebnisliste");
+        button.addEventListener("click", function(){
+            const rules = document.getElementById("Regeln").value;  // noch ein JSON String der umgewandelt werden muss // WICHTIG: ABFRAGE MUSS INNERHALB DES EVENTLISTENERS SEIN!
+            console.log(rules);
+            const inputMatrix = JSON.parse(rules);
+            
+            const studentenLeben = new Vorrang(inputMatrix);
+            for (const next of studentenLeben) {
+                const listItem = document.createElement("li");
+                listItem.textContent = next;
+                solutionlist.appendChild(listItem);
+            }
+        })
+    </script>
+</body>
+</html>
