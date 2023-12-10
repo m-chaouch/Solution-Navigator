@@ -1,0 +1,3 @@
+wobei der Anfang der Zeile aus A.txt und das Ende aus B.txt stammen soll. 
+Die beiden Dateien sollen also zeilenweise konkateniert werden. 
+Erzielen Sie max. Geschwindigkeit durch maximale Parallelität.
