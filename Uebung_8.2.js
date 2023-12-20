@@ -46,7 +46,7 @@ function BArray(){
 // ^ Mit async/await
 
 async function startAsyncTasks() {
-    // mit diesem Ansatz können beide Funktionen parallel zueinander die benötigten Daten fetchen
+    // mit diesem Ansatz können beide Funktionen asynchron die benötigten Daten fetchen (sollte fetch von A blockieren, weiter zu B)
     const promiseA = AArray();  
     const promiseB = BArray();  
 

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <script src="Uebung_9.3.js"></script>
+</head>
+<body>
+    <h1>Tic-Tac-Toe</h1>
+    <div class="webpage">
+        <div class="game">
+            <svg id="svgmain" xmlns="http://www.w3.org/2000/svg" width="60vh" height="60vh" viewBox="0 0 150 150" fill="none">
+                <g clip-path="url(#clip0_1_2)">
+                    <rect x="46" width="6" height="150" rx="3" fill="black"/>
+                    <rect y="52" width="6" height="150" rx="3" transform="rotate(-90 0 52)" fill="black"/>
+                    <rect y="104" width="6" height="150" rx="3" transform="rotate(-90 0 104)" fill="black"/>
+                    <rect x="98" width="6" height="150" rx="3" fill="black"/>
+                    <rect id="1" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                    <rect id="2" x="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                    <rect id="3" x="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                    <rect id="4" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"  />
+                    <rect id="5" x="52" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                    <rect id="6" x="104" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                    <rect id="7" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                    <rect id="8" x="52" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                    <rect id="9" x="104" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                </g>
+            </svg>
+        </div>
+    </div>
+    <h3 id="whoWon"></h3>
+    <button id="resetButton">Reset</button>
+    
+
+    <script>
+        let currentPlayer = 2;  // ist zwar O aber bei XorO ist festgelegt, dass X anfängt!
+        let gamematrix = [[0,0,0],[0,0,0],[0,0,0]];
+
+        let svgmain = document.getElementById('svgmain')
+        let rec1 = svgmain.getElementById('1');
+        let rec2 = svgmain.getElementById('2');
+        let rec3 = svgmain.getElementById('3');
+        let rec4 = svgmain.getElementById('4');
+        let rec5 = svgmain.getElementById('5');
+        let rec6 = svgmain.getElementById('6');
+        let rec7 = svgmain.getElementById('7');
+        let rec8 = svgmain.getElementById('8');
+        let rec9 = svgmain.getElementById('9');
+        let Winner = document.getElementById('whoWon');
+        const resetButton = document.getElementById('resetButton');
+
+        // Eventlistener für jeden Rectangle! (Trennung zwischen HTML und JS : Unobstrusive JavaScript)
+        rec1.addEventListener('click', event => {
+            if (Winner.textContent === "") {  
+            const [currentPlayer,curr] = OorX(rec1,getCoords(rec1));
+        // ersetze das bisherige leere viereck mit einem Symbol x oder o
+            pos = {x : 0,   // Position des Klickes im Tic-Tac-Toe-Gitters
+                y : 0};
+            insertInMatrix(currentPlayer, pos);
+            rec1.outerHTML = curr;
+            Winner.textContent = checkGameWinner(gamematrix);
+            }
+        });
+
+        rec2.addEventListener('click', event => {
+            if (Winner.textContent === "") {  
+            const [currentPlayer,curr] = OorX(rec2, getCoords(rec2));
+            pos = {x : 1,
+                y : 0};
+            insertInMatrix(currentPlayer, pos);
+            rec2.outerHTML = curr;
+            Winner.textContent = checkGameWinner(gamematrix);
+            }
+        });
+
+        rec3.addEventListener('click', event => {
+            if (Winner.textContent === "") {  
+            const [currentPlayer,curr] = OorX(rec3, getCoords(rec3));
+            pos = {x : 2,
+                y : 0};
+            insertInMatrix(currentPlayer, pos);
+            rec3.outerHTML = curr;
+            Winner.textContent = checkGameWinner(gamematrix);
+            }
+        });
+
+        rec4.addEventListener('click', event => {
+            if (Winner.textContent === "") {  
+            const [currentPlayer,curr] = OorX(rec4, getCoords(rec4));
+            pos = {x : 0,
+                y : 1};
+            insertInMatrix(currentPlayer, pos);
+            rec4.outerHTML = curr;
+            Winner.textContent = checkGameWinner(gamematrix);
+            }
+        });
+
+        rec5.addEventListener('click', event => {
+            if (Winner.textContent === "") {  
+            const [currentPlayer,curr] = OorX(rec5, getCoords(rec5));
+            pos = {x : 1,
+                y : 1};
+            insertInMatrix(currentPlayer, pos);
+            rec5.outerHTML = curr;
+            Winner.textContent = checkGameWinner(gamematrix);
+            }
+        });
+
+        rec6.addEventListener('click', event => {
+            if (Winner.textContent === "") {  
+            const [currentPlayer,curr] = OorX(rec6, getCoords(rec6));
+            pos = {x : 2,
+                y : 1};
+            insertInMatrix(currentPlayer, pos);
+            rec6.outerHTML = curr;
+            Winner.textContent = checkGameWinner(gamematrix);
+            }
+        });
+
+        rec7.addEventListener('click', event => {
+            if (Winner.textContent === "") {  
+            const [currentPlayer,curr] = OorX(rec7, getCoords(rec7));
+            pos = {x : 0,
+                y : 2};
+            insertInMatrix(currentPlayer, pos);
+            rec7.outerHTML = curr;
+            Winner.textContent = checkGameWinner(gamematrix);
+            }
+        });
+
+        rec8.addEventListener('click', event => {
+            if (Winner.textContent === "") {  
+            const [currentPlayer,curr] = OorX(rec8, getCoords(rec8));
+            pos = {x : 1,
+                y : 2};
+            insertInMatrix(currentPlayer, pos);
+            rec8.outerHTML = curr;
+            Winner.textContent = checkGameWinner(gamematrix);
+            }
+        });
+
+        rec9.addEventListener('click', event => {
+            if (Winner.textContent === "") {  
+            const [currentPlayer,curr] = OorX(rec9, getCoords(rec9));
+            pos = {x : 2,
+                y : 2};
+            insertInMatrix(currentPlayer, pos);
+            rec9.outerHTML = curr;
+            Winner.textContent = checkGameWinner(gamematrix);
+            }
+        });
+        
+
+        resetButton.addEventListener('click', () => {
+            // toDO :diesen Implementierungsansatz noch mal anschauen!
+            // svgmain.innerHTML = `
+            //     <g clip-path="url(#clip0_1_2)">
+            //         <rect x="46" width="6" height="150" rx="3" fill="black"/>
+            //         <rect y="52" width="6" height="150" rx="3" transform="rotate(-90 0 52)" fill="black"/>
+            //         <rect y="104" width="6" height="150" rx="3" transform="rotate(-90 0 104)" fill="black"/>
+            //         <rect x="98" width="6" height="150" rx="3" fill="black"/>
+
+            //         <rect id="1" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+            //         <rect id="2" x="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+            //         <rect id="3" x="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+            //         <rect id="4" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"  />
+            //         <rect id="5" x="52" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+            //         <rect id="6" x="104" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+            //         <rect id="7" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+            //         <rect id="8" x="52" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+            //         <rect id="9" x="104" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+            //     </g>
+            //     `;
+            window.location.reload();
+        })
+
+        function getCoords(elem){   // Schlüssel-Wert-Paare vereinfachen den Zugriff und sparen code in den Eventlistener
+            return {    
+                x: elem.getAttribute('x'),
+                y: elem.getAttribute('y')
+            };
+        }
+
+        function OorX(elem, coords){    // Spieler sollten abwechseln dran kommen und X fängt immer an
+            if(coords.x === null){
+                coords.x = 0;
+            }
+            if(coords.y === null){
+                coords.y = 0;
+            }
+            console.log(currentPlayer + " ist dran")
+            if(currentPlayer === 2){
+                currentPlayer = 1;
+                return [currentPlayer, setX(elem, coords)];
+            }else{  // Ansonsten ist der Spieler mit O dran
+                currentPlayer = 2;
+                return [currentPlayer, setO(elem, coords)];
+            }
+
+        }
+
+        function setX(elem, coords){
+            const x = `
+                <g transform="translate(${coords.x},${coords.y})"> 
+                    <rect width="46" height="46" fill="white" rx="2"/>
+                    <rect x="6.86646" y="41.5601" width="3" height="49.6085" rx="1.5" transform="rotate(-135 6.86646 41.5601)" fill="black"/>
+                    <rect x="4.74513" y="6.48158" width="3" height="49.6085" rx="1.5" transform="rotate(-45 4.74513 6.48158)" fill="black"/>
+                </g>
+            `;
+            return x;
+        }
+
+        function setO(elem, coords){
+            const o = `
+                <g transform="translate(${coords.x},${coords.y})">
+                    <rect  width="46" height="46" fill="white"/>
+                    <circle cx="23" cy="23" r="19" fill="black"/>
+                    <circle cx="23" cy="23" r="16" fill="white"/>
+                </g>
+
+            `;
+            return o;
+        }
+
+        function insertInMatrix(currentPlayer, pos){
+            gamematrix[pos.y][pos.x] = currentPlayer;       //x ist die Spalte und y ist die Zeile!!
+        }
+
+    </script>
+</body>
+</html>
+
+<style>
+    .webpage{
+        display:flex;
+        width: 100%;
+        height: 70vh;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .game{
+        display:flex;
+        width:60vh;
+        height: 60vh;
+    }
+
+    h1{
+        font-size: 35px;
+    }
+
+    h3{
+        font-size: 40px;
+        text-align: center;
+    }
+</style>
