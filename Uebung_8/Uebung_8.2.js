@@ -4,7 +4,7 @@ let Btext;
 
 // Erster fetch-Aufruf
 function AArray(){  // in Funktion getan, damit aufruf in doWork erfolgen kann
-    return fetch('http://127.0.0.1:5500/A.txt')       //fetch gibt ein promise zurück
+    return fetch('http://127.0.0.1:5500/Uebung_8/A.txt')       //fetch gibt ein promise zurück
     .then(response => response.text())
     .then(data => {
       Atext = data;
@@ -17,7 +17,7 @@ function AArray(){  // in Funktion getan, damit aufruf in doWork erfolgen kann
 
 
 function BArray(){
-    return fetch('http://127.0.0.1:5500/B.txt')
+    return fetch('http://127.0.0.1:5500/Uebung_8/B.txt')
     .then(response => response.text())
     .then(data => {
       Btext = data;

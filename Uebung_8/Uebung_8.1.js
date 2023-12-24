@@ -3,7 +3,7 @@ let Btext;
 
 
 // Erster fetch-Aufruf
-const promiseA = fetch('http://127.0.0.1:5500/A.txt')
+const promiseA = fetch('http://127.0.0.1:5500/Uebung_8/A.txt')
   .then(response => response.text())
   .then(data => {
     Atext = data;
@@ -14,7 +14,7 @@ const promiseA = fetch('http://127.0.0.1:5500/A.txt')
   .catch(error => console.error("Fehler bei der Fetch-Anfrage von A.txt", error));
 
 
- const promiseB = fetch('http://127.0.0.1:5500/B.txt')
+ const promiseB = fetch('http://127.0.0.1:5500/Uebung_8/B.txt')
   .then(response => response.text())
   .then(data => {
     Btext = data;

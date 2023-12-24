@@ -13,7 +13,7 @@
 <ol id="Ergebnisliste"></ol>
     <script>
         const button = document.getElementById("Sortierbutton");
-        
+        let id = 1;
         const solutionlist = document.getElementById("Ergebnisliste");
         button.addEventListener("click", function(){
             const rules = document.getElementById("Regeln").value;  // noch ein JSON String der umgewandelt werden muss // WICHTIG: ABFRAGE MUSS INNERHALB DES EVENTLISTENERS SEIN!
@@ -21,10 +21,16 @@
             const inputMatrix = JSON.parse(rules);
             
             const studentenLeben = new Vorrang(inputMatrix);
+            const space = document.createElement("p");
+            space.textContent = "Ergebnis Nr." + id++;
+            solutionlist.appendChild(space);
+            let newlist = document.createElement("ol");
+            solutionlist.appendChild(newlist);
             for (const next of studentenLeben) {
                 const listItem = document.createElement("li");
                 listItem.textContent = next;
-                solutionlist.appendChild(listItem);
+                newlist.appendChild(listItem);
+
             }
         })
     </script>

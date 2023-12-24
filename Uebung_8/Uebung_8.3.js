@@ -3,7 +3,7 @@ let htmlTabContentText = '';
 async function fetchAll() {
     if(htmlTabContentText == ''){   // falls schonmal gefetched nicht nötig nochmal zu fetchen
         try {
-            const response = await fetch('http://127.0.0.1:5500/8.3.json');
+            const response = await fetch('http://127.0.0.1:5500/Uebung_8/8.3.json');
             const data = await response.json();   // json ist nämlich auch eine asynchrone Funktion
             
             htmlTabContentText = data;
