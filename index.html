@@ -3,20 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
     <title>Solution-Navigator</title>
+    <link rel="stylesheet" href="style.css">
+    <script type=module src="/main.js"></script>
+    <!-- type=module ist hier extrem wichtig. Dadurch gilt main.js als modul, wird asynchron geladen und erst ausgeführt, wenn der DOM-Baum aufgebaut ist.-->
+    <!-- https://www.youtube.com/watch?v=j5Sl6vx_l1s -->
 </head>
+
+<my-nav></my-nav>
 <body>
-    <h1>Solution-Navigator</h1>
-    <a href="Uebung_0.html">Übung 0</a>
-    <br>
-    <a href="Uebung_1.html">Übung 1</a>
-    <br>
-    <a href="Uebung_2.html">Übung 2</a>
-    <br>
-    <a href="Uebung_3.html">Übung 3</a>
-    <br>
-    <a href="Uebung_4.html">Übung 4</a>
-    <br>
-    <a href="Uebung_5.html">Übung 5</a>
+    <h1></h1>
+    <div id="nav-placeholder"></div>
+    <div class="landingpage">
+        <div class="landingpagecontent">
+            <div class="Mein"><b>Mein</b></div>
+            <div class="SN"><b>Solution-Navigator</b></div>
+        </div>
+    </div>
+    
 </body>
 </html>
