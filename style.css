@@ -1,7 +1,31 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0 ;
+    padding: 0 ;
 }
+/* unsicher ob erlaubt: */
+/* width
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  /* ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  /* ::-webkit-scrollbar-thumb {
+    background: #000000;
+    border-radius: 10px;
+  } */
+  
+  /* Handle on hover */
+  /* ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  } */ */ */
+
 
 body{
     min-height: 100vh;
@@ -45,7 +69,7 @@ nav a:hover{
     left: 0;
     width: 0;
     height: 100vh;
-    z-index: 999;
+    z-index: 1;
     list-style: none;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
     transition: width 400ms ease; /* Übergang nur für Breite */
@@ -56,6 +80,11 @@ nav a:hover{
     width: 21vh;
 }
 
+#content {
+    user-select: none;
+    padding: 20px;
+    transition: margin-left 400ms ease;
+}
 
 
 .sideitemlist li{
@@ -76,8 +105,57 @@ nav a:hover{
 
 .sideitemlist{
     list-style: none;
-    transition: height 4s ease;
+    transition: height 150ms ease;
 }
+
+.dropdown{
+    height: 0vh;
+    overflow: hidden;
+    transition: height 150ms ease;
+}
+
+.sidebar.open.dropdownwidth {
+    width: 30vh;
+}
+
+.dropdown.open{
+    height:5vh;
+}
+
+/* .dropdown li {
+    display: grid;
+    grid-template-columns: 1fr 1fr 5vh 1fr;
+} */
+/* https://codepen.io/CodeXYZ/pen/xbdxyO hat hier geholfen die Animation zu machen */
+.dropdownicon{
+    
+    transform: rotate(-90deg);
+    transition: transform 150ms ease-in-out;  
+}
+
+.turned{
+    transform:rotate(90deg);
+}
+
+.pos{
+    display: flex;
+    justify-content: right;
+}
+
+
+
+.dropdown a {
+    width: 100%;
+    justify-content: right;
+  }
+  
+  .dropdown a:hover {
+    background-color: #ddd;
+  }
+  
+  .dropdown:hover {
+    display: block;
+  }
 
 
 
@@ -107,10 +185,8 @@ nav a:hover{
 }
 
 .Logo{
-    
     font-family: 'Noto Sans Mono';
     text-align: center;
-
 }
 
 
@@ -136,5 +212,11 @@ nav a:hover{
     background-color: lightgrey;;
 }
 
+/* .exclude-from-margin * {
+    all: initial;
+} */
 
 
+#ex-margin{
+    all: initial;
+}
