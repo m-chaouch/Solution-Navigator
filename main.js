@@ -11,7 +11,7 @@ class MyNav extends HTMLElement {
                             <rect x="4" y="20" width="22" height="3" fill="black"/>
                         </svg>
                     </li>
-                    <li class="Logo"><a href="">Solution-Navigator</a></li>
+                    <li class="Logo"><a href="/index.html">Solution-Navigator</a></li>
                     <li></li>
                     <li class="impressum"><a href="">Impressum</a></li>    
                 </ul>
@@ -25,9 +25,9 @@ class MyNav extends HTMLElement {
                             <rect x="8.12134" y="6.33881" width="22" height="3" transform="rotate(45 8.12134 6.33881)" fill="black"/>
                         </svg>  
                     </li>         
-                    <li><a href="Uebung_0/Uebung_0.html">Übung 0</a></li>
-                    <li><a href="Uebung_1/Uebung_1.html">Übung 1</a></li>
-                    <li><a href="Uebung_2/Uebung_2.html">Übung 2</a></li>
+                    <li><a href="../Uebung_0/Uebung_0.html">Übung 0</a></li>
+                    <li><a href="../Uebung_1/Uebung_1.html">Übung 1</a></li>
+                    <li><a href="../Uebung_2/Uebung_2.html">Übung 2</a></li>
                     <li><a href="Uebung_3/Uebung_3.1.html">Übung 3</a></li>
                     <li><a href="Uebung_4/Uebung_4.1.js">Übung 4</a></li>
                     <li><a href="Uebung_5/Uebung_5.1.html">Übung 5</a></li>
@@ -42,8 +42,6 @@ class MyNav extends HTMLElement {
 }
 customElements.define('my-nav', MyNav);
 
-
-
 const sidebarOn = document.querySelector(".sidebarOn");
 const sidebarOff = document.querySelector(".sidebarOff");
 const sidebar = document.querySelector(".sidebar");
@@ -51,9 +49,32 @@ const sideitemlist = document.querySelector(".sideitemlist");
 const sideitems = document.querySelector(".sideitemlist li")
 
 sidebarOn.addEventListener("click", () => {
+    if(document.getElementById("content") != null){
+        document.getElementById("content").style.marginLeft = "21vh";
+    }
     sidebar.classList.toggle("open");
 })
 
 sidebarOff.addEventListener("click", () => {
+    if(document.getElementById("content") != null){
+        document.getElementById("content").style.marginLeft = "0vh";
+    }
     sidebar.classList.toggle("open");
 })
+
+//dropdown
+
+const dropdown = document.querySelector(".dropdown");
+const UebButton = document.querySelector(".uebutton");
+const dropdownicon = document.querySelector(".dropdownicon");
+UebButton.addEventListener("click", () => {
+    dropdown.classList.toggle("open");
+    sidebar.classList.toggle("dropdownwidth");
+    turnicon();
+});
+
+function turnicon() {
+    dropdownicon.classList.toggle("turned");
+}
+
+
