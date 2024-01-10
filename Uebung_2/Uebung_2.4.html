@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <title>Übung 2.4</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
+
+    <script type=module src="/main.js"></script>
+    <link rel="stylesheet" href="/style.css">
     <!--
         link ist wichtig wenn ich die Font "Roboto" hier benutzen will! 
         stylesheet bedeutet einfach, dass das verknüpfte Dokument eine Stylesheet-Datei ist.
@@ -18,16 +22,16 @@
 
     h1
     {
+        margin-top: 0;
         text-align: center;
     }
 
     .elem 
     {
         background-color: snow;
-        width: 95%;
-        height: 85vh ; /*100 viewport height - etwas einfacher als Prozentangabe, die hier nichts anzeigt*/
+        width: 100vh;
+        height: 82vh ; /*100 viewport height - etwas einfacher als Prozentangabe, die hier nichts anzeigt*/
         margin: 0 auto; /*horizontales Zentrieren*/
-        flex-grow: 1; /* Den verfügbaren vertikalen Platz ausfüllen */
         border-radius: 15px 15px 0 0;   
         /*
         hiermit rundet man die Ecken oben rechts und oben links ab. 
@@ -36,134 +40,117 @@
         padding-top: 35px;
     }
 
-    .top
+    .headertext
     {
         text-align: center;
     }
 
-    .textinputsection
-    {
+    .columnLeft{
+        display: inline-block;
         text-align: right;
-        
-    }
-
-    .border
-    {
-        padding-right: 90px;
-        padding-top: 30px;
-    }
-
-    label   /*sowas wie *Name, *Email usw. */ 
-    {
-        margin-right:20px;  /*rechts neben JEDEM label ist jetzt etwas Platz*/
-    }
-
-    .selektor
-    {
-        text-align: right;
-        margin-right: 107px;
-    }
-
-    .radioinput 
-    {
-        display: block;
-        text-align: right;
-        margin-right: 67px;
-        margin-top:15px;
-    }
-
-    .label2
-    {
+        vertical-align: top;
         margin-top: 10px;
-        margin-bottom: 10px;
+        margin-right: 15px;
+        width: 60%;
     }
 
-    .text
-    {
-        text-align: right;
-        margin-right: 26vh;
+    .row{
+        margin-top: 15px;
     }
 
-    .selektor2
-    {
-        text-align: right;
-        margin-right: 60px;
+    .columnRight{
+        display: inline-block;
+        text-align: left;
+        margin-top: 10px;
+        width: 30%;
     }
 
-    .checkboxlay
-    {
-        float:right;
-        margin-top: 20px;
+    .selectorItem{
+        margin-top:20px
     }
+
 </style>
+<my-nav></my-nav>
 <body>
-    <h1>Survey Form</h1>
-    <div class="elem">
-        <div>
-            <p class="top">Let us know how we can improve freeCodeCamp</p>
-        </div>
-        <div class="border">
-            <!--Input Types:https://www.w3schools.com/html/html_form_input_types.asp-->
-            <div class="textinputsection">
-                <label for="fname">* Name:</label>
-                <input type="text" placeholder="Enter your name"><br><br>
-                <label for="lname">* Email: </label>
-                <input type="text" placeholder="Enter your Email"><br><br>
-                <label for="lname">* Age:</label>
-                <input type="text" placeholder="Age"><br><br>
-            </div>
-            <!--Selektor:https://www.w3schools.com/tags/tag_select.asp-->
-            <div class="selektor">
-                <label  for ="Student">Which option best describes your current role?</label>
-                <select name="Student" id="Student" style="padding-top: 6px; padding-bottom: 6px;">
-                <option value="Student">Student</option>
-                </select>
-            </div>
-            <div class="radioinput">
-                <label for="Student" style="display:inline-block;margin-right: 133px;">How likely is that you would recommend freeCodeCamp to a friend?</label>
-                <div style="display:block;">
-                    <input type="radio" class="label2" name="choice">   <!--weil alle Auswahlen name="choice" haben, kann man von allen Möglichkeiten nur eins auswählen-->
-                    <label for="Definitely">Definitely</label><br>
-                    <div style="margin-right: 18px;">
-                        <input type="radio" class="label2" name="choice">
-                        <label for="Maybe">Maybe</label><br>
-                    </div>
-                    <div style="margin-right: 5px;">
-                        <input type="radio" class="label2" name="choice">
-                        <label for="NotSure">Not sure</label>
-                    </div>
-                </div>
-            </div>
-            <div class="selektor2" style="margin-top: 20px;">
-                <label  for ="Select">What do you like the most in FCC?</label>
-                <select name="Select" id="Select" style="padding-top: 6px; padding-bottom: 6px;">
-                <option value="Selected">Select an option</option>
-                </select>
-            </div>
-            
-            <div style="margin-top: 20px; text-align: right;">
-                <label>Things that should be improved in the future(Check all that apply)</label>
-                <div class="checkboxlay">
+    <div class="pagecontent">
+        <h1>Survey Form</h1>
+        <div class="elem">
+            <div>
+                <p class="headertext">Let us know how we can improve freeCodeCamp</p>
+            </div >
+                <!--Input Types:https://www.w3schools.com/html/html_form_input_types.asp-->
+                <div class="row">
                     <div>
-                        <input type="checkbox" class="label2">
-                        <label for="vehicle1"> Front-end Projects</label><br>
+                        <div class="columnLeft"><label for="fname">* Name:</label></div>
+                        <div class="columnRight"><input type="text" placeholder="Enter your name"></div>
                     </div>
-                    <div style="margin-right: 1px;">
-                        <input type="checkbox" class="label2">
-                        <label for="vehicle2"> Back-end Projects</label><br>
+                    <div>
+                        <div class="columnLeft"><label for="lname">* Email: </label></div>
+                        <div class="columnRight"><input type="text" placeholder="Enter your Email"></div>
                     </div>
-                    <div style="margin-right: 2px;">
-                        <input type="checkbox" class="label2">
-                        <label for="vehicle3"> Data Visualization</label>
+                    <div>
+                        <div class="columnLeft"><label for="lname">* Age:</label></div>
+                        <div class="columnRight"><input type="text" placeholder="Age"></div>
                     </div>
-
                 </div>
-                
-            </div>
-            
+                <!--Selektor:https://www.w3schools.com/tags/tag_select.asp-->
+                <div class="row">
+                    <div class="columnLeft">
+                        <label  for ="Student">Which option best describes your current role?</label>
+                    </div>
+                    <div class="columnRight">
+                        <select name="Student" style="padding-top: 6px; padding-bottom: 6px; text-align: left;">
+                            <option value="Student">Student</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columnLeft">
+                        <label>How likely is that you would recommend <br> freeCodeCamp to a friend?</label>
+                    </div>
+                    <div class="columnRight">
+                        <input type="radio" name="choice">   <!--weil alle Auswahlen name="choice" haben, kann man von allen Möglichkeiten nur eins auswählen-->
+                        <label>Definitely</label>
+                        <div>
+                            <input type="radio" name="choice" class="selectorItem">
+                            <label>Maybe</label><br>
+                        </div>
+                        <div>
+                            <input type="radio" name="choice" class="selectorItem">
+                            <label for="NotSure">Not sure</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columnLeft">
+                        <label  for ="Select">What do you like the most in FCC?</label>
+                    </div>
+                    <div class="columnRight">
+                        <select name="Select" id="Select" style="padding-top: 6px; padding-bottom: 6px;">
+                            <option value="Selected">Select an option</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="columnLeft">
+                        <label>Things that should be improved in the future <br>(Check all that apply):</label>
+                    </div>
+                    <div class="columnRight">
+                        <div>
+                            <input type="checkbox" >
+                            <label> Front-end Projects</label><br>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="selectorItem">
+                            <label> Back-end Projects</label><br>
+                        </div>
+                        <div>
+                            <input type="checkbox" class="selectorItem">
+                            <label> Data Visualization</label>
+                        </div>
+                    </div>
+                </div>
         </div>
-        
-
     </div>
 </body>
 </html>
