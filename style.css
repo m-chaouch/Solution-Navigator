@@ -1,6 +1,10 @@
-*{
-    margin: 0 ;
-    padding: 0 ;
+
+body{
+    margin:0;
+    padding: 0;
+}
+ul, li {
+    margin-top:0;
 }
 /* unsicher ob erlaubt: */
 /* width
@@ -31,13 +35,18 @@ body{
     min-height: 100vh;
 }
 
+.navbar{
+    font-family: 'Noto Sans Mono';
+}
+
 
 .navitemlist{
     display: grid;
     grid-template-columns: 7vh 22vh 1fr 13vh;     /*sidenav-logo, Logo, Impressum*/
     height: 5vh;
-    list-style: none;
 
+    list-style: none;
+    padding:0;
 }
 
 .navitemlist li{
@@ -45,6 +54,7 @@ body{
     justify-content: center;
     align-items: center;
     height: 100%;
+    background-color: white;
 }
 
 .navitemlist li a{
@@ -56,6 +66,7 @@ body{
     text-decoration: none;
     color:black;
     user-select: none;
+    
 }
 
 nav a:hover{
@@ -71,19 +82,36 @@ nav a:hover{
     height: 100vh;
     z-index: 1;
     list-style: none;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px -15px 15px rgba(0, 0, 0, 0.1);      /*-15px um unten keinen Schatten zu haben. gute Hilfe: https://www.w3schools.com/cssref/css3_pr_box-shadow.php*/
     transition: width 400ms ease; /* Übergang nur für Breite */
     overflow: hidden; /* Verhindert das sichtbare Überlaufen des Inhalts */
 }
 
 .sidebar.open {
-    width: 21vh;
+    width: 20vh;
 }
 
-#content {
-    user-select: none;
-    padding: 20px;
+.pagecontent {
+    
+    padding-left: 15px;
     transition: margin-left 400ms ease;
+}
+.taskheading{
+    font-size: 40px;
+    font-family: 'Noto Sans Mono';
+    text-align: center;
+    margin:0;
+}
+
+.task{
+    font-family: 'Noto Sans Mono';
+}
+
+.specialWord{
+    color:rgba(255, 0, 43, 0.63);
+    background-color: rgba(255, 8, 0, 0.13);
+    border-radius: 3px;
+    padding: 2px;
 }
 
 
@@ -96,14 +124,19 @@ nav a:hover{
     font-family: 'Noto Sans Mono';
     display: flex;
     align-items: center;
-    justify-content: center;
     text-decoration: none;
     height: 100%;
     color: black;
     user-select: none;
 }
 
+.sidebarItemtext {
+    margin-left:35px;
+}
+
+
 .sideitemlist{
+    padding: 0;
     list-style: none;
     transition: height 150ms ease;
 }
@@ -112,14 +145,17 @@ nav a:hover{
     height: 0vh;
     overflow: hidden;
     transition: height 150ms ease;
+    padding: 0;
 }
 
 .sidebar.open.dropdownwidth {
-    width: 30vh;
+    width: 22vh;
 }
 
 .dropdown.open{
-    height:5vh;
+    list-style: none;   /* bei einer bestimmten Breite, wird der kreis des listenelementes angezeigt */
+    height:10vh;
+    padding: 0;
 }
 
 /* .dropdown li {
@@ -128,35 +164,24 @@ nav a:hover{
 } */
 /* https://codepen.io/CodeXYZ/pen/xbdxyO hat hier geholfen die Animation zu machen */
 .dropdownicon{
-    
-    transform: rotate(-90deg);
+    margin-left:50px;
+    transform: rotate(90deg);
     transition: transform 150ms ease-in-out;  
 }
 
 .turned{
-    transform:rotate(90deg);
-}
-
-.pos{
-    display: flex;
-    justify-content: right;
+    transform:rotate(-90deg);
 }
 
 
-
-.dropdown a {
-    width: 100%;
-    justify-content: right;
-  }
+.dropdown a p{
+    margin-left:55px;
+}
   
-  .dropdown a:hover {
-    background-color: #ddd;
-  }
+.dropdown a:hover {
+background-color: #ddd;
+}
   
-  .dropdown:hover {
-    display: block;
-  }
-
 
 
 
@@ -215,8 +240,3 @@ nav a:hover{
 /* .exclude-from-margin * {
     all: initial;
 } */
-
-
-#ex-margin{
-    all: initial;
-}

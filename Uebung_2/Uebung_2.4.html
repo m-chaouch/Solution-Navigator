@@ -5,7 +5,7 @@
     <title>Übung 2.4</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap">
     <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css">  
     <script type=module src="/main.js"></script>
     <link rel="stylesheet" href="/style.css">
     <!--
@@ -14,7 +14,7 @@
     -->
 </head>
 <style>
-    body
+    .content
     {
         font-family: Roboto;
         background-color: #a9d7d1;
@@ -29,8 +29,8 @@
     .elem 
     {
         background-color: snow;
-        width: 100vh;
-        height: 82vh ; /*100 viewport height - etwas einfacher als Prozentangabe, die hier nichts anzeigt*/
+        width: 100vh !important;
+        height: 65vh ; /*100 viewport height - etwas einfacher als Prozentangabe, die hier nichts anzeigt*/
         margin: 0 auto; /*horizontales Zentrieren*/
         border-radius: 15px 15px 0 0;   
         /*
@@ -73,85 +73,245 @@
 <my-nav></my-nav>
 <body>
     <div class="pagecontent">
-        <h1>Survey Form</h1>
-        <div class="elem">
-            <div>
-                <p class="headertext">Let us know how we can improve freeCodeCamp</p>
-            </div >
-                <!--Input Types:https://www.w3schools.com/html/html_form_input_types.asp-->
-                <div class="row">
-                    <div>
-                        <div class="columnLeft"><label for="fname">* Name:</label></div>
-                        <div class="columnRight"><input type="text" placeholder="Enter your name"></div>
-                    </div>
-                    <div>
-                        <div class="columnLeft"><label for="lname">* Email: </label></div>
-                        <div class="columnRight"><input type="text" placeholder="Enter your Email"></div>
-                    </div>
-                    <div>
-                        <div class="columnLeft"><label for="lname">* Age:</label></div>
-                        <div class="columnRight"><input type="text" placeholder="Age"></div>
-                    </div>
-                </div>
-                <!--Selektor:https://www.w3schools.com/tags/tag_select.asp-->
-                <div class="row">
-                    <div class="columnLeft">
-                        <label  for ="Student">Which option best describes your current role?</label>
-                    </div>
-                    <div class="columnRight">
-                        <select name="Student" style="padding-top: 6px; padding-bottom: 6px; text-align: left;">
-                            <option value="Student">Student</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="columnLeft">
-                        <label>How likely is that you would recommend <br> freeCodeCamp to a friend?</label>
-                    </div>
-                    <div class="columnRight">
-                        <input type="radio" name="choice">   <!--weil alle Auswahlen name="choice" haben, kann man von allen Möglichkeiten nur eins auswählen-->
-                        <label>Definitely</label>
+        <h1 class="taskheading">2.4 Wireframe mit HTML und CSS</h1>
+        <p class="task">Gegeben ist folgendes HTML-Wireframe:</p>
+        <img src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/survey.jpg" width="35%">
+        <p class="task">Mit welchem HTML- und CSS-Code kann man dieses Wireframe exakt nachbilden? Schreiben Sie Ihren CSS-Code direkt in die HTML-Datei. 
+            Die grünliche Farbe ist <span class="specialWord">#a9d7d1</span> und die Hintergrundfarbe vom HTML-Formular ist <span class="specialWord">snow</span> . 
+            <br>
+            Die Schriftart ist eine Google Font: <span class="specialWord">Roboto</span>.</p>
+        <br>
+        <p class="task">Mein HTML-Code:</p>
+        <pre>
+            <code>
+                &lt;div class=&quot;content&quot;&gt;
+                    &lt;h1&gt;Survey Form&lt;/h1&gt;
+                    &lt;div class=&quot;elem&quot;&gt;
+                        &lt;div&gt;
+                            &lt;p class=&quot;headertext&quot;&gt;Let us know how we can improve freeCodeCamp&lt;/p&gt;
+                        &lt;/div &gt;
+                            &lt;!--Input Types:https://www.w3schools.com/html/html_form_input_types.asp--&gt;
+                            &lt;div class=&quot;row&quot;&gt;
+                                &lt;div&gt;
+                                    &lt;div class=&quot;columnLeft&quot;&gt;&lt;label for=&quot;fname&quot;&gt;* Name:&lt;/label&gt;&lt;/div&gt;
+                                    &lt;div class=&quot;columnRight&quot;&gt;&lt;input type=&quot;text&quot; placeholder=&quot;Enter your name&quot;&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    &lt;div class=&quot;columnLeft&quot;&gt;&lt;label for=&quot;lname&quot;&gt;* Email: &lt;/label&gt;&lt;/div&gt;
+                                    &lt;div class=&quot;columnRight&quot;&gt;&lt;input type=&quot;text&quot; placeholder=&quot;Enter your Email&quot;&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                                &lt;div&gt;
+                                    &lt;div class=&quot;columnLeft&quot;&gt;&lt;label for=&quot;lname&quot;&gt;* Age:&lt;/label&gt;&lt;/div&gt;
+                                    &lt;div class=&quot;columnRight&quot;&gt;&lt;input type=&quot;text&quot; placeholder=&quot;Age&quot;&gt;&lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;!--Selektor:https://www.w3schools.com/tags/tag_select.asp--&gt;
+                            &lt;div class=&quot;row&quot;&gt;
+                                &lt;div class=&quot;columnLeft&quot;&gt;
+                                    &lt;label  for =&quot;Student&quot;&gt;Which option best describes your current role?&lt;/label&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;columnRight&quot;&gt;
+                                    &lt;select name=&quot;Student&quot; style=&quot;padding-top: 6px; padding-bottom: 6px; text-align: left;&quot;&gt;
+                                        &lt;option value=&quot;Student&quot;&gt;Student&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;row&quot;&gt;
+                                &lt;div class=&quot;columnLeft&quot;&gt;
+                                    &lt;label&gt;How likely is that you would recommend &lt;br&gt; freeCodeCamp to a friend?&lt;/label&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;columnRight&quot;&gt;
+                                    &lt;input type=&quot;radio&quot; name=&quot;choice&quot;&gt;   &lt;!--weil alle Auswahlen name=&quot;choice&quot; haben, kann man von allen Möglichkeiten nur eins auswählen--&gt;
+                                    &lt;label&gt;Definitely&lt;/label&gt;
+                                    &lt;div&gt;
+                                        &lt;input type=&quot;radio&quot; name=&quot;choice&quot; class=&quot;selectorItem&quot;&gt;
+                                        &lt;label&gt;Maybe&lt;/label&gt;&lt;br&gt;
+                                    &lt;/div&gt;
+                                    &lt;div&gt;
+                                        &lt;input type=&quot;radio&quot; name=&quot;choice&quot; class=&quot;selectorItem&quot;&gt;
+                                        &lt;label for=&quot;NotSure&quot;&gt;Not sure&lt;/label&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;row&quot;&gt;
+                                &lt;div class=&quot;columnLeft&quot;&gt;
+                                    &lt;label  for =&quot;Select&quot;&gt;What do you like the most in FCC?&lt;/label&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;columnRight&quot;&gt;
+                                    &lt;select name=&quot;Select&quot; id=&quot;Select&quot; style=&quot;padding-top: 6px; padding-bottom: 6px;&quot;&gt;
+                                        &lt;option value=&quot;Selected&quot;&gt;Select an option&lt;/option&gt;
+                                    &lt;/select&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                            &lt;div class=&quot;row&quot;&gt;
+                                &lt;div class=&quot;columnLeft&quot;&gt;
+                                    &lt;label&gt;Things that should be improved in the future &lt;br&gt;(Check all that apply):&lt;/label&gt;
+                                &lt;/div&gt;
+                                &lt;div class=&quot;columnRight&quot;&gt;
+                                    &lt;div&gt;
+                                        &lt;input type=&quot;checkbox&quot; &gt;
+                                        &lt;label&gt; Front-end Projects&lt;/label&gt;&lt;br&gt;
+                                    &lt;/div&gt;
+                                    &lt;div&gt;
+                                        &lt;input type=&quot;checkbox&quot; class=&quot;selectorItem&quot;&gt;
+                                        &lt;label&gt; Back-end Projects&lt;/label&gt;&lt;br&gt;
+                                    &lt;/div&gt;
+                                    &lt;div&gt;
+                                        &lt;input type=&quot;checkbox&quot; class=&quot;selectorItem&quot;&gt;
+                                        &lt;label&gt; Data Visualization&lt;/label&gt;
+                                    &lt;/div&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                    &lt;/div&gt;
+        &lt;/div&gt;
+            </code>
+        </pre>
+        <p class="task">Mein CSS-Code:</p>
+    <pre>
+        <code>
+            .content
+            {
+                font-family: Roboto;
+                background-color: #a9d7d1;
+            }
+
+            h1
+            {
+                margin-top: 0;
+                text-align: center;
+            }
+
+            .elem 
+            {
+                background-color: snow;
+                width: 100vh;
+                height: 65vh ; /*100 viewport height - etwas einfacher als Prozentangabe, die hier nichts anzeigt*/
+                margin: 0 auto; /*horizontales Zentrieren*/
+                border-radius: 15px 15px 0 0;   
+                /*
+                hiermit rundet man die Ecken oben rechts und oben links ab. 
+                Für welche Ecke stehen die Werte? Reihenfolge : oben links, oben rechts, unten rechts, unten links.
+                */
+                padding-top: 35px;
+            }
+
+            .headertext
+            {
+                text-align: center;
+            }
+
+            .columnLeft
+            {
+                display: inline-block;
+                text-align: right;
+                vertical-align: top;
+                margin-top: 10px;
+                margin-right: 15px;
+                width: 60%;
+            }
+
+            .row
+            {
+                margin-top: 15px;
+            }
+
+            .columnRight
+            {
+                display: inline-block;
+                text-align: left;
+                margin-top: 10px;
+                width: 30%;
+            }
+
+            .selectorItem
+            {
+                margin-top:20px
+            }
+        </code>
+    </pre>
+    <p class="task">Veranschaulicht:</p>
+        <div class="content">
+            <h1>Survey Form</h1>
+                    <div class="elem">
                         <div>
-                            <input type="radio" name="choice" class="selectorItem">
-                            <label>Maybe</label><br>
-                        </div>
-                        <div>
-                            <input type="radio" name="choice" class="selectorItem">
-                            <label for="NotSure">Not sure</label>
-                        </div>
+                            <p class="headertext">Let us know how we can improve freeCodeCamp</p>
+                        </div >
+                            <!--Input Types:https://www.w3schools.com/html/html_form_input_types.asp-->
+                            <div class="row">
+                                <div>
+                                    <div class="columnLeft"><label for="fname">* Name:</label></div>
+                                    <div class="columnRight"><input type="text" placeholder="Enter your name"></div>
+                                </div>
+                                <div>
+                                    <div class="columnLeft"><label for="lname">* Email: </label></div>
+                                    <div class="columnRight"><input type="text" placeholder="Enter your Email"></div>
+                                </div>
+                                <div>
+                                    <div class="columnLeft"><label for="lname">* Age:</label></div>
+                                    <div class="columnRight"><input type="text" placeholder="Age"></div>
+                                </div>
+                            </div>
+                            <!--Selektor:https://www.w3schools.com/tags/tag_select.asp-->
+                            <div class="row">
+                                <div class="columnLeft">
+                                    <label  for ="Student">Which option best describes your current role?</label>
+                                </div>
+                                <div class="columnRight">
+                                    <select name="Student" style="padding-top: 6px; padding-bottom: 6px; text-align: left;">
+                                        <option value="Student">Student</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="columnLeft">
+                                    <label>How likely is that you would recommend <br> freeCodeCamp to a friend?</label>
+                                </div>
+                                <div class="columnRight">
+                                    <input type="radio" name="choice">   <!--weil alle Auswahlen name="choice" haben, kann man von allen Möglichkeiten nur eins auswählen-->
+                                    <label>Definitely</label>
+                                    <div>
+                                        <input type="radio" name="choice" class="selectorItem">
+                                        <label>Maybe</label><br>
+                                    </div>
+                                    <div>
+                                        <input type="radio" name="choice" class="selectorItem">
+                                        <label for="NotSure">Not sure</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="columnLeft">
+                                    <label  for ="Select">What do you like the most in FCC?</label>
+                                </div>
+                                <div class="columnRight">
+                                    <select name="Select" id="Select" style="padding-top: 6px; padding-bottom: 6px;">
+                                        <option value="Selected">Select an option</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="columnLeft">
+                                    <label>Things that should be improved in the future <br>(Check all that apply):</label>
+                                </div>
+                                <div class="columnRight">
+                                    <div>
+                                        <input type="checkbox" >
+                                        <label> Front-end Projects</label><br>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="selectorItem">
+                                        <label> Back-end Projects</label><br>
+                                    </div>
+                                    <div>
+                                        <input type="checkbox" class="selectorItem">
+                                        <label> Data Visualization</label>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="columnLeft">
-                        <label  for ="Select">What do you like the most in FCC?</label>
-                    </div>
-                    <div class="columnRight">
-                        <select name="Select" id="Select" style="padding-top: 6px; padding-bottom: 6px;">
-                            <option value="Selected">Select an option</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="columnLeft">
-                        <label>Things that should be improved in the future <br>(Check all that apply):</label>
-                    </div>
-                    <div class="columnRight">
-                        <div>
-                            <input type="checkbox" >
-                            <label> Front-end Projects</label><br>
-                        </div>
-                        <div>
-                            <input type="checkbox" class="selectorItem">
-                            <label> Back-end Projects</label><br>
-                        </div>
-                        <div>
-                            <input type="checkbox" class="selectorItem">
-                            <label> Data Visualization</label>
-                        </div>
-                    </div>
-                </div>
-        </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
 
