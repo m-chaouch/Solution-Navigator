@@ -1,4 +1,6 @@
-
+html{
+    height: 0;
+}
 body{
     margin:0;
     padding: 0;
@@ -31,20 +33,15 @@ ul, li {
   } */ */ */
 
 
-body{
-    min-height: 100vh;
-}
-
 .navbar{
     font-family: 'Noto Sans Mono';
+    
 }
-
 
 .navitemlist{
     display: grid;
     grid-template-columns: 7vh 22vh 1fr 13vh;     /*sidenav-logo, Logo, Impressum*/
-    height: 5vh;
-
+    min-height: 5vh;
     list-style: none;
     padding:0;
 }
@@ -53,20 +50,24 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     background-color: white;
 }
 
 .navitemlist li a{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
     width: 100%;
+    align-items: center;
     text-decoration: none;
     color:black;
     user-select: none;
-    
+    height: 100%;
+}
+
+.navitemlist li a p{
+    text-align: center;
+    vertical-align: center;
+    width: 100%;
+
 }
 
 nav a:hover{
@@ -190,19 +191,17 @@ background-color: #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75vh
+    height: 75vh;
 }
 
 .landingpagecontent{
+    width: 100vh;
     user-select: none;
-    justify-content: center;
-    align-items: center;
 }
 
 .Mein{
     margin-left: 3px;
     font-size: 50px;
-    width: 100%;
 }
 
 .SN{
@@ -240,3 +239,36 @@ background-color: #ddd;
 /* .exclude-from-margin * {
     all: initial;
 } */
+
+@media(max-width:880px){
+    .landingpagecontent{
+        width: 50vh;
+    }
+
+    .navitemlist{
+        grid-template-columns: 7vh 22vh 1fr 13vh;     /*sidenav-logo, Logo, Impressum*/
+    }
+}
+
+@media(max-width:465px){
+    .landingpagecontent{
+        width: 27vh;
+    }
+
+    .SN{
+        font-size: 40px;
+    }
+
+    .Mein{
+        font-size: 25px;
+    }
+}
+
+@media(max-width:380px){
+    .navitemlist{
+        height: 10vh;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 2fr 1fr 2fr;
+        /* grid-template-areas: ; */
+    }
+}

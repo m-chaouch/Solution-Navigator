@@ -11,9 +11,9 @@ class MyNav extends HTMLElement {
                         <rect x="4" y="20" width="22" height="3" fill="black"/>
                     </svg>
                 </li>
-                <li class="Logo"><a href="/index.html">Solution-Navigator</a></li>
-                <li></li>
-                <li class="impressum"><a href="">Impressum</a></li>
+                <li class="Logo"><a href="/index.html"><p>Solution-Navigator</p></a></li>
+                <li class="dummy"></li>
+                <li class="impressum"><a href=""><p>Impressum</p></a></li>
             </ul>
         </nav>
         <nav class="sidebar">
