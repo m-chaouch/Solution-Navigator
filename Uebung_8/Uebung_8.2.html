@@ -15,11 +15,13 @@
     <div class="pagecontent">
         <h1 class="taskheading">8.2 async/await</h1>
         <p class="task">Lösen Sie die <a href="Uebung_8.1.html">letzte Aufgabe</a> mit async/await statt Promise.</p>
+        <p class="task" id="TextA" style="white-space: pre-wrap;">Text A:</p>
+        <p class="task" id="TextB" style="white-space: pre-wrap;">Text B:</p>
         <h2 class="task">Meine Lösung:</h2>
         <h3 id="TA">Zeilenweise konkatinierter Text aus A.txt und B.txt</h3>
         <p id="conAB"></p>
         <br>
-        <h3 class="task">Mein Code:</h3>
+        <h3 class="task">JavaScript Code:</h3>
         <pre>
             <code>
 let Atext;
@@ -110,6 +112,41 @@ function seeBtext(){
         }).catch(error => {
             console.error("Ein Fehler ist aufgetreten:", error);
         });
-    
+
+    let TextA = document.getElementById("TextA");
+    let TextB = document.getElementById("TextB");
+
+    fetch("http://127.0.0.1:5500/Uebung_8/A.txt")
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP-Fehler!! Status: ${response.status}`);
+        }
+        return response.text();
+    })
+    .then(data => {
+    var paragraph = document.createElement("p");
+    paragraph.textContent = data;
+    TextA.appendChild(paragraph);
+    })
+    .catch(error => {
+        console.error("Fehler beim Abrufen der Daten:", error.message);
+    });
+
+    //andere Möglichkeit zu fetchen mit der fetch-API:
+    async function fetchData() {
+    try {
+        const response = await fetch("http://127.0.0.1:5500/Uebung_8/B.txt");
+        const data = await response.text();
+
+        var paragraph = document.createElement("p");
+        paragraph.textContent = data;
+
+        TextB.appendChild(paragraph);
+    } catch (error) {
+        console.error("Fehler beim Abrufen der Daten:", error);
+    }
+    }
+    fetchData();
+
 </script>
 </html>

@@ -1,6 +1,0 @@
-b@b.com, b@b.com
-a@a.com, a@a.com
-test@test.com, test@test.com
-tt@gmail.com, tt@gmail.com
-test@gmail.com, test@gmail.com
-m@m.com, m@m.com

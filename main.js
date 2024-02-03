@@ -90,14 +90,14 @@ const pagecontent = document.querySelector(".pagecontent")  // Jede einzelne Üb
 
 sidebarOn.addEventListener("click", () => {
     if(pagecontent != null){
-        pagecontent.style.marginLeft = "21vh";
+        pagecontent.classList.add("toSide");
     }
     sidebar.classList.add("open");
 })
 
 sidebarOff.addEventListener("click", () => {
     if(pagecontent != null){
-        pagecontent.style.marginLeft = "0vh";
+        pagecontent.classList.remove("toSide");
     }
     sidebar.classList.remove("open");
 })

@@ -20,7 +20,7 @@
             (z.B. <a href="https://de.wikipedia.org/wiki/Verlorenes_Update">Lost Update</a>) kommen kann, egal wie viele Nutzer sich gleichzeitig registrieren.
         </p>
     
-        <h2 class="task">Meine Lösung:</h2>
+        <h2 class="task">Lösung:</h2>
     
             <h2>Registrierung</h2>
             <form method="post">
@@ -36,7 +36,7 @@
             </form>
     
         <br>
-        <h2 class="task">HTMl Code:</h2>
+        <h3 class="task">HTMl Code:</h3>
         <pre>
             <code>
                 &lt;!DOCTYPE html&gt;<br />
@@ -65,7 +65,7 @@
         </pre>
     
     
-        <h2 class="task">PHP Code:</h2>
+        <h3 class="task">PHP Code:</h3>
         <pre>
             <code>
                 <?php echo highlight_file('registration.php', true); ?>

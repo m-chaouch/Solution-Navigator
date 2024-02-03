@@ -19,13 +19,15 @@
             wobei der Anfang der Zeile aus <span class="specialWord">A.txt</span> und das Ende aus <span class="specialWord">B.txt</span> stammen soll. Die beiden Dateien sollen also zeilenweise konkateniert werden. 
             Erzielen Sie max. Geschwindigkeit durch maximale Parallelität. 
             Achten Sie gleichzeitig auf Korrektheit. Verwenden Sie dabei ausschließlich die Promise-API ohne async/await.</p>
-            <h3 class="task">Text A:</h3>
-            <h3 class="task">Text B:</h3>
+            <hr>
+            <p class="task" id="TextA" style="white-space: pre-wrap;">Text A:</p>
+            <p class="task" id="TextB" style="white-space: pre-wrap;">Text B:</p>
+            <hr>
             <h2 class="task">Lösung:</h2>
         <h3 id="TA">Zeilenweise konkatinierter Text aus A.txt und B.txt</h3>
         <p id="conAB"></p>
         <br>
-        <h3 class="task">Mein Code:</h3>
+        <h3 class="task">JavaScript Code:</h3>
         <pre>
             <code>
 let Atext;
@@ -88,18 +90,52 @@ function seeBtext(){
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 
-</body>
-<script>
-    
-    let concatText = document.getElementById("conAB");
-    // hier wird die Promise von doWork verwendet
-    doWork().then(result => {   // sobald das Ergebnis der promise da ist( von doWork()), dann...
-            concatText.textContent = result;
-            console.log(result);
-        }).catch(error => {
-            console.error("Ein Fehler ist aufgetreten:", error);
-        });
-    
 
-</script>
+    <script>
+    
+      let concatText = document.getElementById("conAB");
+      // hier wird die Promise von doWork verwendet
+      doWork().then(result => {   // sobald das Ergebnis der promise da ist( von doWork()), dann...
+              concatText.textContent = result;
+              console.log(result);
+          }).catch(error => {
+              console.error("Ein Fehler ist aufgetreten:", error);
+          });
+      
+      let TextA = document.getElementById("TextA");
+      let TextB = document.getElementById("TextB");
+
+      fetch("http://127.0.0.1:5500/Uebung_8/A.txt")
+        .then(response => {
+          if (!response.ok) {
+              throw new Error(`HTTP-Fehler!! Status: ${response.status}`);
+          }
+          return response.text();
+        })
+        .then(data => {
+        var paragraph = document.createElement("p");
+        paragraph.textContent = data;
+        TextA.appendChild(paragraph);
+        })
+        .catch(error => {
+            console.error("Fehler beim Abrufen der Daten:", error.message);
+        });
+
+      //andere Möglichkeit zu fetchen mit der fetch-API:
+      async function fetchData() {
+        try {
+            const response = await fetch("http://127.0.0.1:5500/Uebung_8/B.txt");
+            const data = await response.text();
+
+            var paragraph = document.createElement("p");
+            paragraph.textContent = data;
+
+            TextB.appendChild(paragraph);
+        } catch (error) {
+            console.error("Fehler beim Abrufen der Daten:", error);
+        }
+      }
+      fetchData();
+  </script>
+</body>
 </html>

@@ -40,7 +40,7 @@ ul, li {
 
 .navitemlist{
     display: grid;
-    grid-template-columns: 7vh 22vh 1fr 13vh;     /*sidenav-logo, Logo, Impressum*/
+    grid-template-columns: 60px 200px 1fr 150px;     /*sidenav-logo, Logo, Impressum*/
     min-height: 5vh;
     list-style: none;
     padding:0;
@@ -89,13 +89,19 @@ nav a:hover{
 }
 
 .sidebar.open {
-    width: 20vh;
+    width: 180px;
 }
 
 .pagecontent {
     padding-left: 15px;
+    padding-right: 15px;
     transition: margin-left 400ms ease;
 }
+
+.toSide {
+    margin-left: 21vh;
+}
+
 .taskheading{
     font-size: 40px;
     font-family: 'Noto Sans Mono';
@@ -157,7 +163,7 @@ nav a:hover{
 }
 
 .sidebar.open.dropdownwidth {
-    width: 22vh;
+    width: 190px;
 }
 
 .dropdown.open{
@@ -211,8 +217,6 @@ background-color: #ddd;
     }
   
 
-
-
 .landingpage{
     font-family: 'Noto Sans Mono';
     display: flex;
@@ -242,6 +246,14 @@ background-color: #ddd;
 
 .impressum{
     font-family: 'Noto Sans Mono';
+}
+
+.sidebarOn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
 }
 
 .sidebarOff{
@@ -280,24 +292,57 @@ p{
         font-size:9vw;
     }
 
-    .navitemlist{
-        grid-template-columns: 7vh 22vh 1fr 13vh;     /*sidenav-logo, Logo, Impressum*/
-    }
 }
 
-@media(max-width:480px){
-
-}
-
-@media(max-width:400px){
+@media(max-width:450px){
     .navitemlist{
-        height: 10vh;
+        height: 8vh;
         grid-template-columns: 1fr;
-        grid-template-rows: 1fr 2fr 1fr 2fr;
+        grid-template-rows: 1fr 1fr 2fr;
         /* grid-template-areas: ; */
     }
+    .sidebar.open {
+        width: 100vw;
+        height: 117vh;
+    }
 
+    .sidebar.open.dropdownwidth {
+        width: 100vw;
+    }
+
+    .sideitemlist li{
+        height: 6.5vh;
+    }
+
+    .dropdown.open{
+        height:13vh;
+    }
+
+    .dropdown2.open{
+        height:13vh;
+    }
+   
     .pagecontent{
-        margin-top: 10vh;
+        margin-top: 150px;
+    }
+
+    .toSide{
+        margin-left: 0;
+    }
+
+    .sidebarItemtext{
+        margin-left: 35%;
+    }
+
+    .dropdown a p {
+        margin-left: 40%;
+    }
+
+    .dropdown2 a p {
+        margin-left: 40%;
+    }
+
+    .sidebar{
+        box-shadow: 2px 1px 15px rgba(0, 0, 0, 0.1); 
     }
 }
