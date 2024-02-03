@@ -5,32 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tic-Tac-Toe</title>
     <script src="Uebung_9.3.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css">  
+    <script type=module src="/main.js"></script>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h1>Tic-Tac-Toe</h1>
-    <div class="webpage">
-        <div class="game">
-            <svg id="svgmain" xmlns="http://www.w3.org/2000/svg" width="60vh" height="60vh" viewBox="0 0 150 150" fill="none">
-                <g clip-path="url(#clip0_1_2)">
-                    <rect x="46" width="6" height="150" rx="3" fill="black"/>
-                    <rect y="52" width="6" height="150" rx="3" transform="rotate(-90 0 52)" fill="black"/>
-                    <rect y="104" width="6" height="150" rx="3" transform="rotate(-90 0 104)" fill="black"/>
-                    <rect x="98" width="6" height="150" rx="3" fill="black"/>
-                    <rect id="1" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
-                    <rect id="2" x="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
-                    <rect id="3" x="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
-                    <rect id="4" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"  />
-                    <rect id="5" x="52" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
-                    <rect id="6" x="104" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
-                    <rect id="7" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
-                    <rect id="8" x="52" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
-                    <rect id="9" x="104" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
-                </g>
-            </svg>
+    <my-nav></my-nav>
+    <div class="pagecontent">
+        <h1 class="taskheading">9.3 Interaktive SVG Grafik</h1>
+        <p class="task">Implementieren Sie das Spiel <a href="https://de.wikipedia.org/wiki/Tic-Tac-Toe" target="_blank">Tic-Tac-Toe</a> als HTML-Datei mit Inline SVG, CSS und JS</p>
+        <h2 class="task">Lösung:</h2>
+        <h1>Tic-Tac-Toe</h1>
+        <h3 id="whoWon"></h3>
+        <button id="resetButton">Reset</button>
+        <div class="webpage">
+            
+            <div class="game">
+                <svg id="svgmain" xmlns="http://www.w3.org/2000/svg" width="60vh" height="60vh" viewBox="0 0 150 150" fill="none">
+                    <g clip-path="url(#clip0_1_2)">
+                        <rect x="46" width="6" height="150" rx="3" fill="black"/>
+                        <rect y="52" width="6" height="150" rx="3" transform="rotate(-90 0 52)" fill="black"/>
+                        <rect y="104" width="6" height="150" rx="3" transform="rotate(-90 0 104)" fill="black"/>
+                        <rect x="98" width="6" height="150" rx="3" fill="black"/>
+                        <rect id="1" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                        <rect id="2" x="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                        <rect id="3" x="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                        <rect id="4" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"  />
+                        <rect id="5" x="52" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                        <rect id="6" x="104" y="52" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                        <rect id="7" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                        <rect id="8" x="52" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                        <rect id="9" x="104" y="104" width="46" height="46" rx="2" fill="white" fill-opacity="0.01"/>
+                    </g>
+                </svg>
+            </div>
         </div>
+
     </div>
-    <h3 id="whoWon"></h3>
-    <button id="resetButton">Reset</button>
+
     
 
     <script>

@@ -4,13 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
-    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css">  
     <script type=module src="/main.js"></script>
     <link rel="stylesheet" href="/style.css">
-    <title>Übung 4</title>
+    <title>Übung 4.1</title>
 </head>
 <my-nav></my-nav>
 <body>
-   <h2 id="content">Aufgabe 1</h2>
+   <div class="pagecontent">
+       <h2 class="taskheading">4.1 Funktionen</h2>
+       <p class="task">Schreiben Sie folgende Funktionen in JavaScript:</p>
+       <br>
+       <ol class="task">
+            <li>Eine Funktion <span class="specialWord">identity()</span>, die ein Argument als Parameter entgegennimmt und dieses als Ergebnis zurückgibt.<li>
+            <li>Eine Funktion <span class="specialWord">identity_function()</span>, die ein Argument als Parameter entgegennimmt und eine Funktion zurückgibt, die dieses Argument zurückgibt.</li>
+            <li>Zwei binäre Funktionen <span class="specialWord">add</span> und <span class="specialWord">mul</span>, die Summe und Produkt berechnen.</li>
+            <li>Eine Addierer-Funktion <span class="specialWord">addf()</span>, so dass <span class="specialWord">addf(x)(y)</span> genau <span class="specialWord">x + y</span> zurückgibt. (Es haben also zwei Funktionsaufrufe zu erfolgen. <span class="specialWord">addf(x)</span> liefert eine Funktion, die auf <span class="specialWord">y</span> angewandt wird.)</li>
+            <li>Eine Funktion <span class="specialWord">applyf()</span>, die aus einer binären Funktion wie <span class="specialWord">add(x,y)</span> eine Funktion <span class="specialWord">addf</span> berechnet,
+                die mit zwei Aufrufen das gleiche Ergebnis liefert, z.B. <span class="specialWord">addf = applyf(add); addf(x)(y)</span> soll <span class="specialWord">add(x,y)</span> liefern. Entsprechend <span class="specialWord">applyf(mul)(5)(6)</span> soll <span class="specialWord">30</span> liefern, wenn <span class="specialWord">mul</span> die binäre Multiplikation ist.</li>
+       </ol>
+       <br>
+       <h3 class="task">Lösung:</h3>
+       <div>
+           <pre>
+                <code>
+                    function identity(a){
+                        return a;
+                    }
+                    
+                    function identity_function(a){
+                        return identity(a);
+                    }
+                    
+                    function add(a,b){
+                        return a+b;
+                    }
+                    
+                    function mul(a,b){
+                        return a*b;
+                    }
+                    
+                    function addf(x){
+                        return function refun(y){
+                            return x+y;
+                        }
+                    }
+                    
+                    function applyf(fun){
+                        return function fun1(x){
+                            return function fun2(y){
+                                return fun(x,y);
+                            }
+                        }
+                    }
+                </code>
+           </pre>
+       </div>
+   </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

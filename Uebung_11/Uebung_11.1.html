@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Übung 11</title>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css">  
+    <script type=module src="/main.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <my-nav></my-nav>
+    <div class="pagecontent">
+        <h1 class="taskheading">11.1 Lokaler Webserver mit NodeJS</h1>
+        <p class="task">
+            Erstellen Sie einen lokalen Webserver mit NodeJS. Reichen Sie als Lösung den JS-Code Ihrer <span class="specialWord">server.js</span> ein. 
+            Der Webserver soll über eine Schnittstelle verfügen, an die ein Client einen Namen senden kann und als Ergebnis dann mit einem Gruß antwortet. 
+            Beispiel: Der Client sendet <span class="specialWord">"Mika"</span> und der Server antwortet mit <span class="specialWord">"Hallo Mika!"</span>.
+        </p>
+        <br>
+        <h2 class="task">Meine Lösung:</h2>
+        <pre>
+            <code>
+// import express from "express";  // importieren des Express-Moduls (funktioniert leider nicht)
+const express = require("express");
+
+
+const app = express();  // Instanz von der Express application erstellen
+const port = 8080;  // port festlegen, auf dem der Server stehen soll
+
+app.get('/', (req, res) => {    //  definierung einer Route
+    res.send('Server ist online!');
+});
+
+
+//  Die Schnittstelle - Interaktion über URL Parameter
+app.get("/Hello/:name", (req, res) => {     
+    const name = req.params.name;       // hol den Parameter
+
+    if(name) {
+        const greeting = `Hello ${name}!`;
+        res.send(greeting);
+    } else {
+        res.status(400).send("Der Name wurde nicht angegeben!");
+    }
+});
+
+
+app.listen(port, () => {        // startet den Server
+    console.log(`Server is running on port ${port}`);
+});
+
+// Der Server wird mit node server.js gestartet
+            </code>
+        </pre>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

@@ -93,7 +93,6 @@ nav a:hover{
 }
 
 .pagecontent {
-    
     padding-left: 15px;
     transition: margin-left 400ms ease;
 }
@@ -102,6 +101,7 @@ nav a:hover{
     font-family: 'Noto Sans Mono';
     text-align: center;
     margin:0;
+    margin-bottom: 50px;
 }
 
 .task{
@@ -149,11 +149,24 @@ nav a:hover{
     padding: 0;
 }
 
+.dropdown2{
+    height: 0vh;
+    overflow: hidden;
+    transition: height 150ms ease;
+    padding: 0;
+}
+
 .sidebar.open.dropdownwidth {
     width: 22vh;
 }
 
 .dropdown.open{
+    list-style: none;   /* bei einer bestimmten Breite, wird der kreis des listenelementes angezeigt */
+    height:10vh;
+    padding: 0;
+}
+
+.dropdown2.open{
     list-style: none;   /* bei einer bestimmten Breite, wird der kreis des listenelementes angezeigt */
     height:10vh;
     padding: 0;
@@ -170,6 +183,12 @@ nav a:hover{
     transition: transform 150ms ease-in-out;  
 }
 
+.dropdownicon2{
+    margin-left:50px;
+    transform: rotate(90deg);
+    transition: transform 150ms ease-in-out;  
+}
+
 .turned{
     transform:rotate(-90deg);
 }
@@ -178,10 +197,18 @@ nav a:hover{
 .dropdown a p{
     margin-left:55px;
 }
+
+.dropdown2 a p{
+    margin-left:55px;
+}
   
 .dropdown a:hover {
 background-color: #ddd;
 }
+
+.dropdown2 a:hover {
+    background-color: #ddd;
+    }
   
 
 
@@ -195,7 +222,6 @@ background-color: #ddd;
 }
 
 .landingpagecontent{
-    width: 100vh;
     user-select: none;
 }
 
@@ -218,14 +244,12 @@ background-color: #ddd;
     font-family: 'Noto Sans Mono';
 }
 
-
-
 .sidebarOff{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 5vh;
-    width: 7vh;
+    height: 60px;
+    width: 60px;
 }
 
 .sidebarOff:hover{
@@ -236,13 +260,24 @@ background-color: #ddd;
     background-color: lightgrey;;
 }
 
-/* .exclude-from-margin * {
-    all: initial;
-} */
+ol li{  /*für mehr Abstand zwischen den Auflistungen, z.b. bei 4.1*/
+    line-height: 2;     /*https://www.w3schools.com/css/css_text_spacing.asp*/
+}
 
+p{
+    line-height: 2;
+}
 @media(max-width:880px){
     .landingpagecontent{
-        width: 50vh;
+        width: 50%;
+    }
+
+    .Mein{
+        font-size: 5vw;
+    }
+
+    .SN{
+        font-size:9vw;
     }
 
     .navitemlist{
@@ -250,25 +285,19 @@ background-color: #ddd;
     }
 }
 
-@media(max-width:465px){
-    .landingpagecontent{
-        width: 27vh;
-    }
+@media(max-width:480px){
 
-    .SN{
-        font-size: 40px;
-    }
-
-    .Mein{
-        font-size: 25px;
-    }
 }
 
-@media(max-width:380px){
+@media(max-width:400px){
     .navitemlist{
         height: 10vh;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 2fr 1fr 2fr;
         /* grid-template-areas: ; */
+    }
+
+    .pagecontent{
+        margin-top: 10vh;
     }
 }

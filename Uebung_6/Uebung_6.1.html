@@ -3,12 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css">  
+    <script type=module src="/main.js"></script>
+    <link rel="stylesheet" href="/style.css">
     <title>Übung 6.1</title>
 </head>
+
 <body>
-    <h1>Klammerpaare</h1>
-    <input type="text" id="Input">
-    <p>Fehlt ein Klammerpaar oder sollte eine Klammer falsch gesetzt sein, leuchtet das Eingabefeld rot.</p>
+    <my-nav></my-nav>
+    <div class="pagecontent">
+        <h1 class="taskheading">6.1 Klammerpaare</h1>
+        <p class="task">Schreiben Sie eine Webseite, in die man eine Zeichenkette mit beliebigen Buchstaben, Zahlen und Sonderzeichen eingeben kann, die beliebig geschachtelte Klammern
+            <span class="specialWord">[...]</span>, <span class="specialWord">(...)</span> und <span class="specialWord">{...}</span>enthält, sodass sofort geprüft wird, ob alle Klammerpaare korrekt geschachtelt sind. 
+            Das Eingabefeld der Zeichenkette soll rot gefärbt werden, wenn es ein Klammerpaar gibt, das falsch geschachtelt ist. Verwenden Sie für Ihre Tests die Funktion <a href="https://developer.mozilla.org/en-US/docs/Web/API/console/assert_static" target="_blank">console.assert</a>
+        </p>
+        <h2 class="task">Lösung:</h2>
+        <br>
+        <h3 class="task">Klammerpaare</h3>
+        <input type="text" id="Input">
+        <p class="task">Fehlt ein Klammerpaar oder sollte eine Klammer falsch gesetzt sein, leuchtet das Eingegebene rot.</p>
+        <br>
+        <h3 class="task">Mein Code:</h3>
+        <pre>
+            <code>
+                const userInput = document.getElementById('Input');
+                const changeTextColor = (event) => {        // Arrow Funktion
+                    const userInputvalue = userInput.value; // MUSS in dieser Funktion sein, sonst bleibt leer weil der Input am Anfang leer ist
+                    if (!bracketCheck(userInputvalue)) {
+                        userInput.classList.add('error');// Farbe Rot, wenn die Eingabe falsche Klammersetzung hat
+                    } else {
+                        
+                        userInput.classList.remove('error'); // Leer lassen, um zur Standardfarbe zurückzukehren
+                    }
+                }
+                userInput.addEventListener('input', changeTextColor);
+            
+            
+                const bracketCheck = (userInputvalue) =>{
+                    const stack = [];
+                    const brackets = {  // brackets Objekt mit einem assoziativem Array, um Klammern zueinander zu ordnen
+                        '(': ')',
+                        '{': '}',
+                        '[': ']',
+                    };
+            
+                    for (let i = 0; i < userInputvalue.length; i++) {
+                        const char = userInputvalue[i];  // hol das Zeichen an der Stelle i
+                        console.log(char);
+            
+                        if (brackets.hasOwnProperty(char)) {  // guckt ob char ein gültiger Schlüsselwert in brackets ist
+                            stack.push(char);
+                        } else if (Object.values(brackets).includes(char)) {    //Schaut ob char den WERTEN von brackets matched -> wenn ja, dann entferne eine Klammer vom Stack
+                            const lastOpened = stack.pop();
+                            if (brackets[lastOpened] !== char) {
+                                return false;// Klammerpaar stimmt nicht überein
+                            }
+                        }
+                    }
+                    // Überprüfe, ob alle geöffneten Klammern geschlossen wurden
+                    return stack.length === 0;
+                }
+            </code>
+        </pre>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 
 <script>

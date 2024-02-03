@@ -4,13 +4,130 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Übung 5.2</title>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css">
+    <script type=module src="/main.js"></script>
+    <link rel="stylesheet" href="/style.css">
 </head>
+
 <body>
-    <h1>Rednerliste</h1>
-    <label for="fname">Neuer Redner: </label>
-    <input type="text" id="neuerRedner">
-    <button id="hinzbutton">Hinzufügen</button>
-    <ul id="Rednerliste"></ul>
+    <my-nav></my-nav>
+
+    <div class="pagecontent">
+        <h1 class="taskheading" >5.2 Rednerliste mit Zeitmessung</h1>
+        
+        <p class="task">
+            Implementieren Sie die interaktive Anwendung "Rednerliste mit Zeitmessung" selbstständig in JavaScript durch Nutzung der DOM-API und der Timer-Funktionen. 
+            Neue Redner sollen auf Knopfdruck hinzugefügt werden können. Deren Uhr wird dann sofort automatisch gestartet und alle anderen Uhren angehalten.
+            Bei jedem Redner soll die individuelle, gemessene Redezeit sekundengenau angezeigt werden. Für jeden Redner soll es einen eigenen Start-/Stopp-Button geben. 
+            Es soll immer nur eine Uhr laufen. Angezeigt werden sollen die bisherigen Summenzeiten aller Redebeiträge der betreffenden Person. 
+            Suchen Sie eine möglichst kurze und elegante Lösung. Achten Sie gleichzeitig auf gute Usability: 
+            z.B. wenn die Eingabe mit einem Return beendet wird, soll der Klick auf den Button nicht mehr erforderlich sein.
+        </p>
+        <br>
+        <br>
+        <h3 class="task">Lösung:</h3>
+        <br>
+        <label for="fname">Neuer Redner: </label>
+        <input type="text" id="neuerRedner">
+        <button id="hinzbutton">Hinzufügen</button>
+        <ul id="Rednerliste"></ul>
+        <br>
+        <h3 class="task">Mein Code:</h3>
+        <br>
+        <div>
+            <pre>
+                <code>
+    const Rednerliste = document.getElementById("Rednerliste");
+    const button = document.getElementById("hinzbutton");   
+    let aktiverRedner = null;
+    button.addEventListener("click", function(){
+        const neuerRedner = document.getElementById('neuerRedner').value;
+        const neuezeile = document.createElement('li');
+
+        if(aktiverRedner != null){  // Wenn es schon einen aktiven Redner gibt, dann schalte seinen Timer aus und setze den Button von Stopp! auf Start!
+            clearInterval(aktiverRedner.timerId);
+            aktiverRedner.querySelector("button").textContent = "Start!";
+        }
+        
+        const rednerObjekt = {
+            name: neuerRedner,
+            start: new Date().getTime(),
+            element: neuezeile,
+            button: null,
+            sekunden:0,
+            minuten:0,
+            stunden:0
+        };
+        aktiverRedner = neuezeile;
+
+        const startstoppButton = document.createElement('button');
+        startstoppButton.textContent = 'Stopp!';
+
+        let timer = document.createElement('text');
+        timer.textContent = ' 00:00:00s ';
+
+        neuezeile.textContent = neuerRedner;
+        neuezeile.appendChild(timer)    // füge den timer dem Listenelement hinzu
+        startstoppButton.addEventListener("click", event => startstopp(timer, rednerObjekt)); // WICHTIG (um den Zugriff auf ein älteres Listenelement nicht zu verlieren. Alternative und komplexer:Array)
+        neuezeile.appendChild(startstoppButton);    // füge den Button dem Listenelement hinzu
+        
+        Rednerliste.appendChild(neuezeile); // füge die Zeile in die Liste hinzu
+
+        aktiverRedner.timerId= setInterval(aktualisiereZeit, 1000); // damit speichern wir die timerId mit der wir den Timer stoppen können
+        function aktualisiereZeit() {
+            ++rednerObjekt.sekunden;
+            if (rednerObjekt.sekunden === 60) {
+                    rednerObjekt.sekunden = 0;
+                    rednerObjekt.minuten++;
+                    if (rednerObjekt.minuten === 60) {
+                        rednerObjekt.minuten = 0;
+                        rednerObjekt.stunden++;
+                    }
+                }
+                timer.textContent = " " + NullDavor(rednerObjekt.stunden) + ":" + NullDavor(rednerObjekt.minuten) + ":" + NullDavor(rednerObjekt.sekunden) + 's';
+        }
+
+        
+
+        function startstopp(timer, rednerObjekt){   // der startstoppbutton ist immer der button der gedrückt wurde
+            if(aktiverRedner == rednerObjekt.element) { // wenn der aktive Redner den startstoppbutton (hier im Zustand Stopp!) gedrückt hat (aktiverRedner == neuezeile kann nur der aktuelle Redner sein) 
+                aktiverRedner.querySelector("button").textContent = "Start!";
+                clearInterval(aktiverRedner.timerId);
+             }else{  // Ansonsten hat irgendjemand anderes Start gedrückt!
+                // dann müssen wir auch den Button von dem neuesten Redner auf Start! stellen
+                aktiverRedner.querySelector("button").textContent = "Start!";   // Setze den Button vom neuesten Redner auf Start!
+                clearInterval(aktiverRedner.timerId);       // pausiere auch seinen Timer
+                // und den startstoppbutton der angeklickt wurde auf Stopp! stellen
+                aktiverRedner = rednerObjekt.element;
+                startstoppButton.textContent = " Stopp! ";  // den button von dem der jetzt gedrückt wurde auf Stopp! stellen (also jemand hat auf Start! gedrückt)
+
+                aktiverRedner.timerId = setInterval(function(){
+                    ++rednerObjekt.sekunden;
+                    if (rednerObjekt.sekunden === 60) {
+                        rednerObjekt.sekunden = 0;
+                        rednerObjekt.minuten++;
+                        if (rednerObjekt.minuten === 60) {
+                            rednerObjekt.minuten = 0;
+                            rednerObjekt.stunden++;
+                        }
+                    }
+                    timer.textContent = " " + NullDavor(rednerObjekt.stunden) + ":" + NullDavor(rednerObjekt.minuten) + ":" + NullDavor(rednerObjekt.sekunden) + 's';
+                },1000);
+            }
+        }
+
+        function NullDavor(zeit) {
+        return zeit < 10 ? "0" + zeit : zeit;
+    }
+    })
+                </code>
+            </pre>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 
 <script>

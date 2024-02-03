@@ -14,10 +14,16 @@
     -->
 </head>
 <style>
+
+    .scrollcontainer{
+        overflow-x: auto;
+    }
+    
     .content
     {
         font-family: Roboto;
         background-color: #a9d7d1;
+        width: 100vh !important;
     }
 
     h1
@@ -29,7 +35,6 @@
     .elem 
     {
         background-color: snow;
-        width: 100vh !important;
         height: 65vh ; /*100 viewport height - etwas einfacher als Prozentangabe, die hier nichts anzeigt*/
         margin: 0 auto; /*horizontales Zentrieren*/
         border-radius: 15px 15px 0 0;   
@@ -75,7 +80,7 @@
     <div class="pagecontent">
         <h1 class="taskheading">2.4 Wireframe mit HTML und CSS</h1>
         <p class="task">Gegeben ist folgendes HTML-Wireframe:</p>
-        <img src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/survey.jpg" width="35%">
+        <img src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/survey.jpg" width="100%" style="max-width: 450px;">
         <p class="task">Mit welchem HTML- und CSS-Code kann man dieses Wireframe exakt nachbilden? Schreiben Sie Ihren CSS-Code direkt in die HTML-Datei. 
             Die grünliche Farbe ist <span class="specialWord">#a9d7d1</span> und die Hintergrundfarbe vom HTML-Formular ist <span class="specialWord">snow</span> . 
             <br>
@@ -230,86 +235,88 @@
         </code>
     </pre>
     <p class="task">Veranschaulicht:</p>
-        <div class="content">
-            <h1>Survey Form</h1>
-                    <div class="elem">
-                        <div>
-                            <p class="headertext">Let us know how we can improve freeCodeCamp</p>
-                        </div >
-                            <!--Input Types:https://www.w3schools.com/html/html_form_input_types.asp-->
-                            <div class="row">
-                                <div>
-                                    <div class="columnLeft"><label for="fname">* Name:</label></div>
-                                    <div class="columnRight"><input type="text" placeholder="Enter your name"></div>
-                                </div>
-                                <div>
-                                    <div class="columnLeft"><label for="lname">* Email: </label></div>
-                                    <div class="columnRight"><input type="text" placeholder="Enter your Email"></div>
-                                </div>
-                                <div>
-                                    <div class="columnLeft"><label for="lname">* Age:</label></div>
-                                    <div class="columnRight"><input type="text" placeholder="Age"></div>
-                                </div>
-                            </div>
-                            <!--Selektor:https://www.w3schools.com/tags/tag_select.asp-->
-                            <div class="row">
-                                <div class="columnLeft">
-                                    <label  for ="Student">Which option best describes your current role?</label>
-                                </div>
-                                <div class="columnRight">
-                                    <select name="Student" style="padding-top: 6px; padding-bottom: 6px; text-align: left;">
-                                        <option value="Student">Student</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="columnLeft">
-                                    <label>How likely is that you would recommend <br> freeCodeCamp to a friend?</label>
-                                </div>
-                                <div class="columnRight">
-                                    <input type="radio" name="choice">   <!--weil alle Auswahlen name="choice" haben, kann man von allen Möglichkeiten nur eins auswählen-->
-                                    <label>Definitely</label>
+        <div class="scrollcontainer">
+            <div class="content">
+                <h1>Survey Form</h1>
+                        <div class="elem">
+                            <div>
+                                <p class="headertext">Let us know how we can improve freeCodeCamp</p>
+                            </div >
+                                <!--Input Types:https://www.w3schools.com/html/html_form_input_types.asp-->
+                                <div class="row">
                                     <div>
-                                        <input type="radio" name="choice" class="selectorItem">
-                                        <label>Maybe</label><br>
+                                        <div class="columnLeft"><label for="fname">* Name:</label></div>
+                                        <div class="columnRight"><input type="text" placeholder="Enter your name"></div>
                                     </div>
                                     <div>
-                                        <input type="radio" name="choice" class="selectorItem">
-                                        <label for="NotSure">Not sure</label>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="columnLeft">
-                                    <label  for ="Select">What do you like the most in FCC?</label>
-                                </div>
-                                <div class="columnRight">
-                                    <select name="Select" id="Select" style="padding-top: 6px; padding-bottom: 6px;">
-                                        <option value="Selected">Select an option</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="columnLeft">
-                                    <label>Things that should be improved in the future <br>(Check all that apply):</label>
-                                </div>
-                                <div class="columnRight">
-                                    <div>
-                                        <input type="checkbox" >
-                                        <label> Front-end Projects</label><br>
+                                        <div class="columnLeft"><label for="lname">* Email: </label></div>
+                                        <div class="columnRight"><input type="text" placeholder="Enter your Email"></div>
                                     </div>
                                     <div>
-                                        <input type="checkbox" class="selectorItem">
-                                        <label> Back-end Projects</label><br>
-                                    </div>
-                                    <div>
-                                        <input type="checkbox" class="selectorItem">
-                                        <label> Data Visualization</label>
+                                        <div class="columnLeft"><label for="lname">* Age:</label></div>
+                                        <div class="columnRight"><input type="text" placeholder="Age"></div>
                                     </div>
                                 </div>
-                            </div>
-                    </div>
-    </div>
+                                <!--Selektor:https://www.w3schools.com/tags/tag_select.asp-->
+                                <div class="row">
+                                    <div class="columnLeft">
+                                        <label  for ="Student">Which option best describes your current role?</label>
+                                    </div>
+                                    <div class="columnRight">
+                                        <select name="Student" style="padding-top: 6px; padding-bottom: 6px; text-align: left;">
+                                            <option value="Student">Student</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="columnLeft">
+                                        <label>How likely is that you would recommend <br> freeCodeCamp to a friend?</label>
+                                    </div>
+                                    <div class="columnRight">
+                                        <input type="radio" name="choice">   <!--weil alle Auswahlen name="choice" haben, kann man von allen Möglichkeiten nur eins auswählen-->
+                                        <label>Definitely</label>
+                                        <div>
+                                            <input type="radio" name="choice" class="selectorItem">
+                                            <label>Maybe</label><br>
+                                        </div>
+                                        <div>
+                                            <input type="radio" name="choice" class="selectorItem">
+                                            <label for="NotSure">Not sure</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="columnLeft">
+                                        <label  for ="Select">What do you like the most in FCC?</label>
+                                    </div>
+                                    <div class="columnRight">
+                                        <select name="Select" id="Select" style="padding-top: 6px; padding-bottom: 6px;">
+                                            <option value="Selected">Select an option</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="columnLeft">
+                                        <label>Things that should be improved in the future <br>(Check all that apply):</label>
+                                    </div>
+                                    <div class="columnRight">
+                                        <div>
+                                            <input type="checkbox" >
+                                            <label> Front-end Projects</label><br>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="selectorItem">
+                                            <label> Back-end Projects</label><br>
+                                        </div>
+                                        <div>
+                                            <input type="checkbox" class="selectorItem">
+                                            <label> Data Visualization</label>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+        </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 </body>

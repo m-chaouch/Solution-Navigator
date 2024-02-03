@@ -5,10 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Übung 8.1</title>
     <script src = "Uebung_8.1.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css">  
+    <script type=module src="/main.js"></script>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <h3 id="TA">Zeilenweise konkatinierter Text aus A.txt und B.txt</h3>
-    <p id="conAB"></p>
+    <my-nav></my-nav>
+    <div class="pagecontent">
+        <h1 class="taskheading">8.1 Promises</h1>
+        <p class="task">Erstellen Sie auf Ihrem lokalen Server (localhost) zwei Text-Dateien <span class="specialWord">A.txt</span> und <span class="specialWord">B.txt</span> mit ungefähr gleich vielen Zeilen. 
+            Laden Sie mit der fetch-API parallel beide Text-Dateien vom Server. Geben Sie auf einer Webseite den Inhalt beider Dateien zeilenweise aus, 
+            wobei der Anfang der Zeile aus <span class="specialWord">A.txt</span> und das Ende aus <span class="specialWord">B.txt</span> stammen soll. Die beiden Dateien sollen also zeilenweise konkateniert werden. 
+            Erzielen Sie max. Geschwindigkeit durch maximale Parallelität. 
+            Achten Sie gleichzeitig auf Korrektheit. Verwenden Sie dabei ausschließlich die Promise-API ohne async/await.</p>
+            <h3 class="task">Text A:</h3>
+            <h3 class="task">Text B:</h3>
+            <h2 class="task">Lösung:</h2>
+        <h3 id="TA">Zeilenweise konkatinierter Text aus A.txt und B.txt</h3>
+        <p id="conAB"></p>
+        <br>
+        <h3 class="task">Mein Code:</h3>
+        <pre>
+            <code>
+let Atext;
+let Btext;
+
+
+// Erster fetch-Aufruf
+const promiseA = fetch('http://127.0.0.1:5500/Uebung_8/A.txt')
+  .then(response => response.text())
+  .then(data => {
+    Atext = data;
+    // seeAtext()
+    let Aarr = Atext.split('\n').map(line => line.trim());  // map wird genutzt um die Zeilenumbrüche die noch drin sind zu entfernen!
+    return Aarr;
+  })
+  .catch(error => console.error("Fehler bei der Fetch-Anfrage von A.txt", error));
+
+
+ const promiseB = fetch('http://127.0.0.1:5500/Uebung_8/B.txt')
+  .then(response => response.text())
+  .then(data => {
+    Btext = data;
+    // seeBtext()
+    let Barr = Btext.split('\n').map(line => line.trim()); // map wird genutzt um die Zeilenumbrüche die noch drin sind zu entfernen!
+    return Barr;
+  })
+  .catch(error => console.error("Fehler bei der Fetch-Anfrage von B.txt", error));
+
+
+
+
+function doWork(){ // wartet auf die Ergebnisse der promises, dann mache..
+  return Promise.all([
+      promiseA,   // Wiederholung: Die Reihenfolge die ich hier angebe, ist die des Empfang der Ergebnisse im then
+      promiseB
+  ]).then(([arrA,arrB]) => {
+      let result = '';
+      for(let i = 0; i < arrB.length; i++){
+          result += arrA[i];
+          result += arrB[i];
+          result += '\n';
+      }
+      return result;
+  });
+}
+
+
+function seeAtext(){
+  return Atext;
+}
+
+function seeBtext(){
+  return Btext;
+}
+
+
+            </code>
+        </pre>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 
 </body>
 <script>
