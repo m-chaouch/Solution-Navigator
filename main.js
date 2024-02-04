@@ -74,6 +74,7 @@ class MyNav extends HTMLElement {
                 <li><a href="../Uebung_10/Uebung_10.1.html"><p class="sidebarItemtext">Übung 10.1</p></a></li>
                 <li><a href="../Uebung_11/Uebung_11.1.html"><p class="sidebarItemtext">Übung 11.1</p></a></li>
                 <li><a href="../Uebung_12/index.php"><p class="sidebarItemtext">Übung 12.1</p></a></li>
+                <li><a href="../sonstige/Spread.html"><p class="sidebarItemtext">Spread</p></a></li>
             </ul>
         </nav>
             `
@@ -120,7 +121,7 @@ UebButton.addEventListener("click", () => {
 UebButton2.addEventListener("click", () => {
     // toggleDropdown();
     dropdown2.classList.toggle("open");
-    sidebar.classList.toggle("dropdownwidth");
+    sidebar.classList.toggle("dropdownwidth2");
     turnicon2();
 });
 
