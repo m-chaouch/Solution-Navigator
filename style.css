@@ -166,6 +166,10 @@ nav a:hover{
     width: 190px;
 }
 
+.sidebar.open.dropdownwidth2 {
+    width: 190px;
+}
+
 .dropdown.open{
     list-style: none;   /* bei einer bestimmten Breite, wird der kreis des listenelementes angezeigt */
     height:10vh;
@@ -307,6 +311,10 @@ p{
     }
 
     .sidebar.open.dropdownwidth {
+        width: 100vw;
+    }
+
+    .sidebar.open.dropdownwidth2 {
         width: 100vw;
     }
 
