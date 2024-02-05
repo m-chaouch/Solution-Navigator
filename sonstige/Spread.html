@@ -13,6 +13,89 @@
     <my-nav></my-nav>
     <div class="pagecontent">
         <h1 class="taskheading">Spread-Operator</h1>
+        <p class="task">Erklären Sie den „Spread“-Operator mit einem Beispiel.</p>
+        <br>
+        <hr>
+        <br>
+        <p class="task">
+            Der <span class="specialWord">...</span> Operator dient je nach dem wie er notiert ist, als Rest-Operator oder als
+            Spread-Operator. Der Spread-Operator wird nur angewendet, wenn dem <span class="specialWord">...</span> Operator 
+            ein iterierbares Objekt übergeben wird, während sich diese in einem Array oder in einem
+            Funktionsaufruf befinden. Dann fügt der Spread-Operator die Elemente des Objektes in ein 
+            Array ein oder im Falle des Funktionsaufrufes übergibt dieser die einzelnen Elemente des
+            Objektes als Argumente an die Funktion.
+        </p>
+
+        <h3 class="task">Beispiel 1:</h3>
+        <br>
+        <pre>
+            <code>
+            const numbers = [1, 2, 3, 4];
+            const numbers2 = [5, 6, 7, 8];
+
+
+            const spread1 = [...numbers, ...numbers2];
+
+            console.log(spread1);
+
+            </code>
+        </pre>
+
+        <p class="task"> Ausgabe: [1, 2, 3, 4, 5 ,6 ,7 ,8] </p>
+        <br>
+        <hr>
+        <br>
+        <h3 class="task">Beispiel 2:</h3>
+        <br>
+        <pre>
+            <code>
+            const numbers = [1,2,3];
+
+            function ausgabe(a, b ,c) {
+                return [a, b, c];
+            }
+
+            console.log(ausgabe(...threeNumbers));
+            </code>
+        </pre>
+        <p class="task">Ausgabe: [1, 2, 3]</p>
+        <br>
+        <hr>
+        <br>
+        <h3 class="task">Zu Beachten:</h3>
+        <p class="task">Was ist wenn der Array zu viele Argumente hat?</p>
+        <pre>
+            <code>
+                const numbers = [1, 2, 3, 4];
+
+                function ausgabe(a, b ,c) {
+                    return [a, b, c];
+                }
+                    
+                console.log(ausgabe(...numbers));
+            </code>
+        </pre>
+        <p class="task">Ausgabe: [1, 2, 3] -> Das letzte Element wird nicht eingesetzt.</p>
+        <br>
+        <br>
+        <p class="task">Was ist wenn der Array zu wenige Argumente hat?</p>
+        <pre>
+            <code>
+                const numbers = [1, 2];
+
+                function ausgabe(a, b ,c) {
+                return [a, b, c];
+                }
+
+                console.log(ausgabe(...numbers));
+            </code>
+        </pre>
+        <p class="task">Ausgabe: [1, 2, undefined] -> Mit einem Element zu wenig ist das letzte Element im Array undefined.</p>
+        <br>
+        <br>
+        <p class="task" style="font-size: 10px;">Quelle: <a href="https://wiki.selfhtml.org/wiki/JavaScript/Operatoren/Rest-_oder_Spread-Operator#Spread-Operator" target="_blank"> https://wiki.selfhtml.org/wiki/JavaScript/Operatoren/Rest-_oder_Spread-Operator#Spread-Operator</a></p>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
