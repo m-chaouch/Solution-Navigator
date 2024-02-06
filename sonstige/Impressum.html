@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impressum</title>
+    <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'> 
+    <script type=module src="/main.js"></script>
+    <link rel="stylesheet" href="/style.css">
+    <script type=module src="/modules.js"></script>
+</head>
+<body>
+    <my-nav></my-nav>
+    <div class="pagecontent">
+        <h1 class="taskheading">Impressum</h1>
+        <p class="task">Name: Moataz Chaouch</p>
+        <p class="task">Matrikelnummer: 9043697</p>
+        <p class="task">Email: moataz.chaouch@smail.inf.h-brs.de</p>
+        <button class="social">Xing-Profil</button>
+        <button class="social">LinkedIn-Profil</button>
+    </div>
+
+
+    <script type="module">
+        import { SocialButtonEventListener } from '/modules.js';
+        SocialButtonEventListener();
+    </script>
+</body>
+</html>
+
+<style>
+
+.social{
+    background-color: black;
+    color: white;
+    padding: 8px;
+    margin: 8px;
+    font-family: 'Noto Sans Mono';
+}
+
+</style>
+

@@ -103,7 +103,7 @@ nav a:hover{
 }
 
 .taskheading{
-    font-size: 40px;
+    font-size: 35px;
     font-family: 'Noto Sans Mono';
     text-align: center;
     margin:0;
@@ -352,5 +352,9 @@ p{
 
     .sidebar{
         box-shadow: 2px 1px 15px rgba(0, 0, 0, 0.1); 
+    }
+
+    .taskheading{
+        font-size: 25px;
     }
 }

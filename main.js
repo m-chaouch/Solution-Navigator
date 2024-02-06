@@ -13,7 +13,7 @@ class MyNav extends HTMLElement {
                 </li>
                 <li class="Logo"><a href="/index.html"><p>Solution-Navigator</p></a></li>
                 <li class="dummy"></li>
-                <li class="impressum"><a href=""><p>Impressum</p></a></li>
+                <li class="impressum"><a href="../sonstige/Impressum.html"><p>Impressum</p></a></li>
             </ul>
         </nav>
         <nav class="sidebar">
