@@ -276,6 +276,24 @@ background-color: #ddd;
     background-color: lightgrey;;
 }
 
+.solutionButton{
+
+    background-color: black;
+    color: white;
+    padding: 9px;
+    font-size: 20px;
+    font-family: 'Noto Sans Mono';
+    transition: background-color 0.5s ease;
+    margin-bottom: 40px;
+    border: 2px solid black;
+}
+
+.solutionButton:hover {
+    background-color: white;
+    color: black;
+    transition: background-color 0.5s ease;
+}   
+
 ol li{  /*für mehr Abstand zwischen den Auflistungen, z.b. bei 4.1*/
     line-height: 2;     /*https://www.w3schools.com/css/css_text_spacing.asp*/
 }

@@ -7,30 +7,40 @@
     <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'> 
     <script type=module src="/main.js"></script>
     <link rel="stylesheet" href="/style.css">
-    <script type=module src="/modules.js"></script>
 </head>
 <body>
     <my-nav></my-nav>
     <div class="pagecontent">
         <h1 class="taskheading">Impressum</h1>
         <p class="task">Name: Moataz Chaouch</p>
-        <p class="task">Matrikelnummer: 9043697</p>
-        <p class="task">Email: moataz.chaouch@smail.inf.h-brs.de</p>
-        <button class="social">Xing-Profil</button>
-        <button class="social">LinkedIn-Profil</button>
+        <p id="Matrikelnummer" class="task"></p>
+        <p id="Email" class="task">Email:</p>
+        <button class="buttons">Xing-Profil</button>
+        <button class="buttons">LinkedIn-Profil</button>
     </div>
 
 
     <script type="module">
         import { SocialButtonEventListener } from '/modules.js';
         SocialButtonEventListener();
+
+        const matrikelnummertext = document.getElementById("Matrikelnummer");
+        const emailtext = document.getElementById('Email');
+        const matrikelnummer =  9043697;
+        const email = " moataz.chaouch@smail.inf.h-brs.de";
+        matrikelnummertext.innerHTML = `
+            <p class="task">Matrikelnummer: ${matrikelnummer}</p>
+        `;
+        
+        emailtext.textContent += email;
+
     </script>
 </body>
 </html>
 
 <style>
 
-.social{
+.buttons{
     background-color: black;
     color: white;
     padding: 8px;

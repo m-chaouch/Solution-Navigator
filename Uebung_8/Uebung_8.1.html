@@ -25,70 +25,70 @@
             <br>
             <hr>
             <br>
-            <h2 class="task">Lösung:</h2>
-        <h3 id="TA">Zeilenweise konkatinierter Text aus A.txt und B.txt</h3>
-        <p id="conAB"></p>
-        <br>
-        <h3 class="task">JavaScript Code:</h3>
-        <pre>
-            <code>
-let Atext;
-let Btext;
-
-
-// Erster fetch-Aufruf
-const promiseA = fetch('http://127.0.0.1:5500/Uebung_8/A.txt')
-  .then(response => response.text())
-  .then(data => {
-    Atext = data;
-    // seeAtext()
-    let Aarr = Atext.split('\n').map(line => line.trim());  // map wird genutzt um die Zeilenumbrüche die noch drin sind zu entfernen!
-    return Aarr;
-  })
-  .catch(error => console.error("Fehler bei der Fetch-Anfrage von A.txt", error));
-
-
- const promiseB = fetch('http://127.0.0.1:5500/Uebung_8/B.txt')
-  .then(response => response.text())
-  .then(data => {
-    Btext = data;
-    // seeBtext()
-    let Barr = Btext.split('\n').map(line => line.trim()); // map wird genutzt um die Zeilenumbrüche die noch drin sind zu entfernen!
-    return Barr;
-  })
-  .catch(error => console.error("Fehler bei der Fetch-Anfrage von B.txt", error));
-
-
-
-
-function doWork(){ // wartet auf die Ergebnisse der promises, dann mache..
-  return Promise.all([
-      promiseA,   // Wiederholung: Die Reihenfolge die ich hier angebe, ist die des Empfang der Ergebnisse im then
-      promiseB
-  ]).then(([arrA,arrB]) => {
-      let result = '';
-      for(let i = 0; i < arrB.length; i++){
-          result += arrA[i];
-          result += arrB[i];
-          result += '\n';
-      }
-      return result;
-  });
-}
-
-
-function seeAtext(){
-  return Atext;
-}
-
-function seeBtext(){
-  return Btext;
-}
-
-
-            </code>
-        </pre>
-    </div>
+            <button class="solutionButton">Lösung anzeigen</button>
+            <div class="solution" style="display: none;">
+              <h3 id="TA">Zeilenweise konkatinierter Text aus A.txt und B.txt</h3>
+              <p id="conAB"></p>
+              <br>
+              <h3 class="task">JavaScript Code:</h3>
+              <pre>
+                  <code>
+              let Atext;
+              let Btext;
+              
+              
+              // Erster fetch-Aufruf
+              const promiseA = fetch('http://127.0.0.1:5500/Uebung_8/A.txt')
+                .then(response => response.text())
+                .then(data => {
+                  Atext = data;
+                  // seeAtext()
+                  let Aarr = Atext.split('\n').map(line => line.trim());  // map wird genutzt um die Zeilenumbrüche die noch drin sind zu entfernen!
+                  return Aarr;
+                })
+                .catch(error => console.error("Fehler bei der Fetch-Anfrage von A.txt", error));
+              
+              
+              const promiseB = fetch('http://127.0.0.1:5500/Uebung_8/B.txt')
+                .then(response => response.text())
+                .then(data => {
+                  Btext = data;
+                  // seeBtext()
+                  let Barr = Btext.split('\n').map(line => line.trim()); // map wird genutzt um die Zeilenumbrüche die noch drin sind zu entfernen!
+                  return Barr;
+                })
+                .catch(error => console.error("Fehler bei der Fetch-Anfrage von B.txt", error));
+              
+              
+              
+              
+              function doWork(){ // wartet auf die Ergebnisse der promises, dann mache..
+                return Promise.all([
+                    promiseA,   // Wiederholung: Die Reihenfolge die ich hier angebe, ist die des Empfang der Ergebnisse im then
+                    promiseB
+                ]).then(([arrA,arrB]) => {
+                    let result = '';
+                    for(let i = 0; i < arrB.length; i++){
+                result += arrA[i];
+                result += arrB[i];
+                result += '\n';
+                    }
+                    return result;
+                });
+              }
+              
+              
+              function seeAtext(){
+                return Atext;
+              }
+              
+              function seeBtext(){
+                return Btext;
+              }
+                  </code>
+              </pre>
+                  </div>
+            </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 

@@ -4,21 +4,118 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css"> 
     <script type=module src="/main.js"></script>
     <link rel="stylesheet" href="/style.css">
     <title>Übung 3.2</title>
 </head>
-<my-nav></my-nav>
+
 <body>
+    <my-nav></my-nav>
     <div class="pagecontent">
+        <h1 class="taskheading">3.2 Responsiv mit Grid und Mobile-First</h1>
+        <p class="task">
+            Spielen Sie zunächst das <a href="https://cssgridgarden.com/">Grid Garden-Spiel</a>, um Grid zu lernen.
+            Implementieren Sie dann das gleiche Responsive Webdesign wie <a href="./Uebung_3.1.html">zuvor</a> in Aufgabe 3.1, 
+            allerdings diesmal mit Grid und der Mobile-First-Strategie. 
+            Vermeiden Sie außerdem das Erscheinen von horizontalen Scrollbars so weit wie möglich.
+        </p>
         <div class="bigbox">
             <div class="redbox"></div>
             <div class="greenbox"></div>
             <div class="bluebox"></div>
             <div class="pinkbox"></div>
         </div>
+        <br>
+        <h3 class="task">HTML Code:</h3>
+        <pre>
+            <code>
+                &lt;!DOCTYPE html&gt;<br />
+                &lt;html lang=&quot;en&quot;&gt;<br />
+                &lt;head&gt;<br />
+                    &lt;meta charset=&quot;UTF-8&quot;&gt;<br />
+                    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br />
+                    &lt;title&gt;&Uuml;bung 3.2&lt;/title&gt;<br />
+                &lt;/head&gt;<br />
+                &lt;body&gt;<br />
+                    &lt;div class=&quot;bigbox&quot;&gt;<br />
+                        &lt;div class=&quot;redbox&quot;&gt;&lt;/div&gt;<br />
+                        &lt;div class=&quot;greenbox&quot;&gt;&lt;/div&gt;<br />
+                        &lt;div class=&quot;bluebox&quot;&gt;&lt;/div&gt;<br />
+                        &lt;div class=&quot;pinkbox&quot;&gt;&lt;/div&gt;<br />
+                    &lt;/div&gt;<br />
+                &lt;/body&gt;<br />
+                &lt;/html&gt;
+            </code>
+        </pre>
+        <h3 class="task">CSS Code:</h3>
+        <pre>
+            <code>
+                .bigbox{
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    grid-template-rows: 1fr 1fr 8fr 1fr;  
+                    gap:10px;
+                    grid-template-areas:
+                        "redbox" 
+                        "greenbox"
+                        "bluebox"
+                        "pinkbox";
+                }
+            
+                .redbox{
+                    grid-area: redbox;
+                    background-color: red;
+                    height:20vh;    /*damit klar ist, wie groß eine box ist.*/
+                }
+                .greenbox{
+                    grid-area: greenbox;
+                    background-color: rgb(89, 255, 67);
+                }
+                .bluebox{
+                    grid-area: bluebox;
+                    background-color: blue;
+                }
+                .pinkbox{
+                    grid-area: pinkbox;
+                    background-color:  rgb(214, 1, 214);
+                }
+            
+            
+                @media(min-width:40em){
+                    .bigbox{
+                        display: grid;
+                        grid-template-columns: 1fr 2fr;
+                        grid-template-rows: 1fr 8fr 1fr;  
+                        gap:15px;
+                        grid-template-areas:
+                            "redbox redbox"
+                            "greenbox bluebox"
+                            "pinkbox pinkbox";
+                    }
+                }
+            
+                @media(min-width:60em){
+                    .bigbox{
+                        margin:20px;
+                        display: grid;
+                        grid-template-columns: 1fr 4fr 1fr;
+                        grid-template-rows: 1fr 3fr;  
+                        gap:15px;
+                        grid-template-areas:
+                            "redbox redbox redbox"
+                            "greenbox bluebox pinkbox";
+                    }
+            
+                    .redbox{
+                        height:23vh;
+                    }
+                }
+            </code>
+        </pre>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
 
@@ -34,8 +131,7 @@
             "redbox" 
             "greenbox"
             "bluebox"
-            "pinkbox";
-            
+            "pinkbox";       
     }
 
     .redbox{

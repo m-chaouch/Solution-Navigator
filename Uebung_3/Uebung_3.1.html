@@ -4,18 +4,169 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Noto Sans Mono' rel='stylesheet'>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/atom-one-light.min.css">  
     <script type=module src="/main.js"></script>
     <link rel="stylesheet" href="/style.css">
     <title>Übung 3.1</title>
 </head>
-<my-nav></my-nav>
 <body>
-    <div class="bigbox pagecontent">
-        <div class="redbox"></div>
-        <div class="greenbox"></div>
-        <div class="bluebox"></div>
-        <div class="pinkbox"></div>
+    <my-nav></my-nav>
+    <div class="pagecontent">
+        <h1 class="taskheading">3.1 Responsiv mit Flexbox und Desktop-First</h1>
+        <p class="task">
+            Spielen Sie zunächst das <a href="https://flexboxfroggy.com/#de" target="_blanc">Flexbox Froggy-Spiel</a>, um Flexbox zu lernen.
+            Implementieren Sie dann ausschließlich mit HTML, CSS und Flexbox das folgende Responsive Webdesign nach der Desktop-First-Strategie:
+        </p>
+        <br>
+        <img src="https://kaul.inf.h-brs.de/ccm/we/ws23/resources/assets/holy-grail1.png" width="100%" style="max-width: 350px;">
+        <br>
+        <hr>
+        <br>
+        <button id="solutionButton" class="solutionButton">Lösung anzeigen</button>
+        <div class="solution" style="display: none;">
+            <div class="bigbox">
+                <div class="redbox"></div>
+                <div class="greenbox"></div>
+                <div class="bluebox"></div>
+                <div class="pinkbox"></div>
+                <div class="code">
+                    <br>
+                    <h3 class="task">HTML Code: </h3>
+                    <pre>
+                        <code>
+                    &lt;!DOCTYPE html&gt;<br />
+                    &lt;html lang=&quot;en&quot;&gt;<br />
+                    &lt;head&gt;<br />
+                        &lt;meta charset=&quot;UTF-8&quot;&gt;<br />
+                        &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;<br />
+                        &lt;title&gt;&Uuml;bung 3.1&lt;/title&gt;<br />
+                    &lt;/head&gt;<br />
+                    &lt;body&gt;<br />
+                        &lt;div class=&quot;bigbox&quot;&gt;<br />
+                            &lt;div class=&quot;redbox&quot;&gt;&lt;/div&gt;<br />
+                            &lt;div class=&quot;greenbox&quot;&gt;&lt;/div&gt;<br />
+                            &lt;div class=&quot;bluebox&quot;&gt;&lt;/div&gt;<br />
+                            &lt;div class=&quot;pinkbox&quot;&gt;&lt;/div&gt;<br />
+                        &lt;/div&gt;<br />
+                    &lt;/body&gt;<br />
+                    &lt;/html&gt;
+                        </code>
+                    </pre>
+                    <br>
+                    <br>
+                    <h3 class="task">CSS Code: </h3>
+                    <pre>
+                        <code>
+    .bigbox
+    {
+        display:flex;
+        flex-wrap: wrap;
+        width: 100%;
+        height: 85vh;
+    }
+
+    .redbox
+    {
+        background-color: red;
+        margin:1%;
+        width: 100%;
+        height: 30vh
+    }
+
+    .greenbox
+    {
+        background-color: rgb(89, 255, 67);
+        margin:1%;
+        width: 18%;
+        height: 65%
+    }
+
+    .bluebox
+    {
+        background-color: blue;
+        margin:1%;
+        width: 58%;
+        height: 65%
+    }
+
+    .pinkbox
+    {
+        background-color: rgb(214, 1, 214);
+        margin:1%;
+        width: 18%;
+        height: 65%
+    }
+
+    @media(max-width:60em){
+    .greenbox
+    {
+        background-color: rgb(89, 255, 67);
+        margin:1%;
+        width: 18%;
+        height: 100%
+    }
+
+    .bluebox
+    {
+        background-color: blue;
+        margin:1%;
+        width: 78%;
+        height: 100%
+    }
+
+    .pinkbox
+    {
+        background-color: rgb(214, 1, 214);
+        margin:1%;
+        width: 100%;
+        height: 30%;
+        order:3;
+    }
+    
+    }
+
+    @media(max-width:40em){
+    .bluebox
+    {
+        background-color: blue;
+        margin:1%;
+        width: 100%;
+        height: 100%;
+        order:1;
+    }
+
+    .greenbox
+    {
+        background-color: rgb(89, 255, 67);
+        margin:1%;
+        width: 48%;
+        height: 100%;
+        order:2;
+    }
+
+    .pinkbox
+    {
+        background-color: rgb(214, 1, 214);
+        margin:1%;
+        width: 48%;
+        height: 100%;
+        order:3;
+    }
+    }
+                        </code>
+                    </pre>
+
+                </div>
+            </div>
+            <br>
+            <br>
+            <div>
+
+            </div>
+            
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script>
     </div>
 </body>
 </html>
@@ -26,7 +177,7 @@
         padding: 0;
         display:flex;
         flex-wrap: wrap;
-        height: 85vh;
+        height: 50vh;
     }
 
     .redbox
@@ -87,6 +238,11 @@
         height: 30%;
         order:3;
     }
+
+    .code
+    {
+        order:4
+    }
     
     }
 
@@ -118,6 +274,11 @@
         width: 100%;
         height: 100%;
         order:3;
+    }
+
+    .code
+    {
+        order:4
     }
     }
 </style>

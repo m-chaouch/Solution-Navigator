@@ -20,88 +20,88 @@
         <br>
         <hr>
         <br>
-        <h2 class="task">Lösung:</h2>
-        <h3 id="TA">Zeilenweise konkatinierter Text aus A.txt und B.txt</h3>
-        <p id="conAB"></p>
-        <br>
-        <h3 class="task">JavaScript Code:</h3>
-        <pre>
-            <code>
-let Atext;
-let Btext;
-
-// Erster fetch-Aufruf
-function AArray(){  // in Funktion getan, damit aufruf in doWork erfolgen kann
-    return fetch('http://127.0.0.1:5500/Uebung_8/A.txt')       //fetch gibt ein promise zurück
-    .then(response => response.text())
-    .then(data => {
-      Atext = data;
-      // seeAtext()
-      let Aarr = Atext.split('\n').map(line => line.trim());  // map wird genutzt um die Zeilenumbrüche die noch drin sind zu entfernen!
-      return Aarr;
-    })
-    .catch(error => console.error("Fehler bei der Fetch-Anfrage von A.txt", error));  
-}
-
-
-function BArray(){
-    return fetch('http://127.0.0.1:5500/Uebung_8/B.txt')
-    .then(response => response.text())
-    .then(data => {
-      Btext = data;
-      // seeBtext()
-      let Barr = Btext.split('\n').map(line => line.trim()); // map wird genutzt um die Zeilenumbrüche die noch drin sind zu entfernen!
-      return Barr;
-    })
-    .catch(error => console.error("Fehler bei der Fetch-Anfrage von B.txt", error));
-}
-
-
-async function startAsyncTasks() {
-    // mit diesem Ansatz können beide Funktionen asynchron die benötigten Daten fetchen (sollte fetch von A blockieren, weiter zu B)
-    const promiseA = AArray();  
-    const promiseB = BArray();  
-
-    const arrA = await promiseA;
-    const arrB = await promiseB;
-
-    //Wichtig: Mit diesem folgenden Ansatz hätten wir eine sequentielle Ausführung, denn BArray() wird erst ausgeführt, wenn AArray() ein ergebnis hat. await sorgt dafür, dass man auf das Ergebnis eines Promises wartet
-    // const arrA = await AArray();    
-    // const arrB = await BArray();
-
-    return [arrA, arrB];
-}
-
-async function doWork(){    // async sorgt dafür, dass die Funktion ein Promise zurückgibt
-    try{
-        const [arrA, arrB] = await startAsyncTasks();
-        let result = '';
-        for(let i = 0; i < arrB.length; i++){
-            result += arrA[i];
-            result += arrB[i];
-            result += '\n';
-        }
-        return result;
-    } catch(err){
-        console.log("Es gab einen Fehler!", err);
-    }
-}
-
-doWork();
-
-
-function seeAtext(){
-    console.log(Atext);
-}
-
-function seeBtext(){
-    console.log(Btext);
-}
-
-
-            </code>
-        </pre>
-    </div>
+        <button id="solutionButton" class="solutionButton">Lösung anzeigen</button>
+        <div class="solution" style="display: none;">
+            <h3 id="TA">Zeilenweise konkatinierter Text aus A.txt und B.txt</h3>
+            <p id="conAB"></p>
+            <br>
+            <h3 class="task">JavaScript Code:</h3>
+            <pre>
+                <code>
+            let Atext;
+            let Btext;
+            
+            // Erster fetch-Aufruf
+            function AArray(){  // in Funktion getan, damit aufruf in doWork erfolgen kann
+                return fetch('http://127.0.0.1:5500/Uebung_8/A.txt')       //fetch gibt ein promise zurück
+                .then(response => response.text())
+                .then(data => {
+                  Atext = data;
+                  // seeAtext()
+                  let Aarr = Atext.split('\n').map(line => line.trim());  // map wird genutzt um die Zeilenumbrüche die noch drin sind zu entfernen!
+                  return Aarr;
+                })
+                .catch(error => console.error("Fehler bei der Fetch-Anfrage von A.txt", error));  
+            }
+            
+            
+            function BArray(){
+                return fetch('http://127.0.0.1:5500/Uebung_8/B.txt')
+                .then(response => response.text())
+                .then(data => {
+                  Btext = data;
+                  // seeBtext()
+                  let Barr = Btext.split('\n').map(line => line.trim()); // map wird genutzt um die Zeilenumbrüche die noch drin sind zu entfernen!
+                  return Barr;
+                })
+                .catch(error => console.error("Fehler bei der Fetch-Anfrage von B.txt", error));
+            }
+            
+            
+            async function startAsyncTasks() {
+                // mit diesem Ansatz können beide Funktionen asynchron die benötigten Daten fetchen (sollte fetch von A blockieren, weiter zu B)
+                const promiseA = AArray();  
+                const promiseB = BArray();  
+            
+                const arrA = await promiseA;
+                const arrB = await promiseB;
+            
+                //Wichtig: Mit diesem folgenden Ansatz hätten wir eine sequentielle Ausführung, denn BArray() wird erst ausgeführt, wenn AArray() ein ergebnis hat. await sorgt dafür, dass man auf das Ergebnis eines Promises wartet
+                // const arrA = await AArray();    
+                // const arrB = await BArray();
+            
+                return [arrA, arrB];
+            }
+            
+            async function doWork(){    // async sorgt dafür, dass die Funktion ein Promise zurückgibt
+                try{
+            const [arrA, arrB] = await startAsyncTasks();
+            let result = '';
+            for(let i = 0; i < arrB.length; i++){
+                result += arrA[i];
+                result += arrB[i];
+                result += '\n';
+            }
+            return result;
+                } catch(err){
+            console.log("Es gab einen Fehler!", err);
+                }
+            }
+            
+            doWork();
+            
+            
+            function seeAtext(){
+                console.log(Atext);
+            }
+            
+            function seeBtext(){
+                console.log(Btext);
+            }
+                </code>
+            </pre>
+                </div>
+        </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 </body>
