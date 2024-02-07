@@ -20,12 +20,17 @@
             allerdings diesmal mit Grid und der Mobile-First-Strategie. 
             Vermeiden Sie außerdem das Erscheinen von horizontalen Scrollbars so weit wie möglich.
         </p>
-        <div class="bigbox">
-            <div class="redbox"></div>
-            <div class="greenbox"></div>
-            <div class="bluebox"></div>
-            <div class="pinkbox"></div>
-        </div>
+        <br>
+        <hr>
+        <br>
+        <button id="solutionButton" class="solutionButton">Lösung anzeigen</button>
+        <div class="solution" style="display: none;">
+            <div class="bigbox">
+                <div class="redbox"></div>
+                <div class="greenbox"></div>
+                <div class="bluebox"></div>
+                <div class="pinkbox"></div>
+            </div>
         <br>
         <h3 class="task">HTML Code:</h3>
         <pre>
@@ -49,70 +54,71 @@
             </code>
         </pre>
         <h3 class="task">CSS Code:</h3>
-        <pre>
-            <code>
-                .bigbox{
-                    display: grid;
-                    grid-template-columns: 1fr;
-                    grid-template-rows: 1fr 1fr 8fr 1fr;  
-                    gap:10px;
-                    grid-template-areas:
-                        "redbox" 
-                        "greenbox"
-                        "bluebox"
-                        "pinkbox";
-                }
-            
-                .redbox{
-                    grid-area: redbox;
-                    background-color: red;
-                    height:20vh;    /*damit klar ist, wie groß eine box ist.*/
-                }
-                .greenbox{
-                    grid-area: greenbox;
-                    background-color: rgb(89, 255, 67);
-                }
-                .bluebox{
-                    grid-area: bluebox;
-                    background-color: blue;
-                }
-                .pinkbox{
-                    grid-area: pinkbox;
-                    background-color:  rgb(214, 1, 214);
-                }
-            
-            
-                @media(min-width:40em){
+            <pre>
+                <code>
                     .bigbox{
                         display: grid;
-                        grid-template-columns: 1fr 2fr;
-                        grid-template-rows: 1fr 8fr 1fr;  
-                        gap:15px;
+                        grid-template-columns: 1fr;
+                        grid-template-rows: 1fr 1fr 8fr 1fr;  
+                        gap:10px;
                         grid-template-areas:
-                            "redbox redbox"
-                            "greenbox bluebox"
-                            "pinkbox pinkbox";
+                            "redbox" 
+                            "greenbox"
+                            "bluebox"
+                            "pinkbox";
                     }
-                }
-            
-                @media(min-width:60em){
-                    .bigbox{
-                        margin:20px;
-                        display: grid;
-                        grid-template-columns: 1fr 4fr 1fr;
-                        grid-template-rows: 1fr 3fr;  
-                        gap:15px;
-                        grid-template-areas:
-                            "redbox redbox redbox"
-                            "greenbox bluebox pinkbox";
-                    }
-            
+                
                     .redbox{
-                        height:23vh;
+                        grid-area: redbox;
+                        background-color: red;
+                        height:20vh;    /*damit klar ist, wie groß eine box ist.*/
                     }
-                }
-            </code>
-        </pre>
+                    .greenbox{
+                        grid-area: greenbox;
+                        background-color: rgb(89, 255, 67);
+                    }
+                    .bluebox{
+                        grid-area: bluebox;
+                        background-color: blue;
+                    }
+                    .pinkbox{
+                        grid-area: pinkbox;
+                        background-color:  rgb(214, 1, 214);
+                    }
+                
+                
+                    @media(min-width:40em){
+                        .bigbox{
+                            display: grid;
+                            grid-template-columns: 1fr 2fr;
+                            grid-template-rows: 1fr 8fr 1fr;  
+                            gap:15px;
+                            grid-template-areas:
+                                "redbox redbox"
+                                "greenbox bluebox"
+                                "pinkbox pinkbox";
+                        }
+                    }
+                
+                    @media(min-width:60em){
+                        .bigbox{
+                            margin:20px;
+                            display: grid;
+                            grid-template-columns: 1fr 4fr 1fr;
+                            grid-template-rows: 1fr 3fr;  
+                            gap:15px;
+                            grid-template-areas:
+                                "redbox redbox redbox"
+                                "greenbox bluebox pinkbox";
+                        }
+                
+                        .redbox{
+                            height:23vh;
+                        }
+                    }
+                </code>
+            </pre>
+        </div>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
