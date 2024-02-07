@@ -23,7 +23,7 @@
         <hr>
         <br>
     
-        <button id="solutionButton" class="solutionButton">Lösung anzeigen</button>
+    <button id="solutionButton" class="solutionButton">Lösung anzeigen</button>
     <div class="solution" style="display: none;">
             <h2>Registrierung</h2>
             <form method="post">

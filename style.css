@@ -313,7 +313,6 @@ p{
     .SN{
         font-size:9vw;
     }
-
 }
 
 @media(max-width:450px){
@@ -349,7 +348,7 @@ p{
     }
    
     .pagecontent{
-        margin-top: 150px;
+        margin-top: 200px;
     }
 
     .toSide{
